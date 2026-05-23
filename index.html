@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
     <!-- Background Canvas for Dreamy Stars and Particles -->
@@ -36,10 +36,10 @@
         <!-- SECTION 1: THE WELCOME GATE -->
         <section id="welcome-section" class="scene active" aria-labelledby="welcome-title">
             <div class="welcome-card glass-panel">
-                <div class="card-deco-top">🌸 ✦ 🌸</div>
-                <h1 id="welcome-title" class="title-serif">Hello, My Favourite Person... 🤍</h1>
+                <div class="card-deco-top">✦ ✧ ✦</div>
+                <h1 id="welcome-title" class="title-serif">Hello, My Favourite Person...</h1>
                 <p class="subtitle-handwritten" id="welcome-typing"></p>
-                <div class="sparkle-divider">✦ 🌟 ✦</div>
+                <div class="sparkle-divider">✦ ✧ ✦</div>
                 <button id="unwrap-btn" class="cute-btn" type="button">
                     <span>Unwrap the Gift</span>
                     <svg class="arrow-icon" viewBox="0 0 24 24" width="18" height="18">
@@ -52,7 +52,7 @@
         <!-- SECTION 2: THE BIRTHDAY CAKE -->
         <section id="cake-section" class="scene" aria-labelledby="cake-title">
             <div class="scene-content">
-                <h2 id="cake-title" class="title-serif text-center">Make a Wish ✨</h2>
+                <h2 id="cake-title" class="title-serif text-center">Make a Wish</h2>
                 <p class="instruction-text text-center" id="cake-instruction">
                     First light the candles, make a wish, then blow them all out!
                 </p>
@@ -61,13 +61,13 @@
                 <div class="cake-controls">
                     <!-- Light Candles Button -->
                     <button id="light-btn" class="light-btn" type="button" aria-label="Light the candles">
-                        <span class="light-icon">🕯️</span>
+                        <span class="light-icon">✧</span>
                         <span>Light Candles</span>
                     </button>
 
                     <!-- Blow Button (hidden until candles are lit) -->
                     <button id="blow-btn" class="blow-btn hidden" type="button" aria-label="Blow out the candles">
-                        <span class="blow-icon">💨</span>
+                        <span class="blow-icon">✧</span>
                         <span>Blow!</span>
                     </button>
                 </div>
@@ -196,7 +196,7 @@
                 </div>
 
                 <div class="after-blow-message hidden" id="cake-success-msg">
-                    <p class="success-text title-serif">Yay! Happy Birthday! 🎉🌸</p>
+                    <p class="success-text title-serif">Yay! Happy Birthday!</p>
                     <button id="next-to-letter" class="cute-btn">
                         <span>Read Your Letter</span>
                         <svg class="arrow-icon-right" viewBox="0 0 24 24" width="18" height="18">
@@ -214,7 +214,7 @@
 
                 <!-- Stage 1: Envelope trigger -->
                 <div id="envelope-stage">
-                    <p class="instruction-text text-center" style="margin-bottom:14px;">✨ Tap the wax seal to open your letter</p>
+                    <p class="instruction-text text-center" style="margin-bottom:14px;">Tap the wax seal to open your letter</p>
                     <div class="envelope-wrapper" id="envelope-wrapper">
                         <div class="envelope">
                             <div class="envelope-back"></div>
@@ -225,13 +225,13 @@
        <p style="margin-bottom: 4px;">From the days when we had nothing but wild dreams to this exact moment, you have been my anchor, my constant cheerleader, and my absolute favorite human.</p>
        <p style="margin-bottom: 4px;">You have this quiet magic about you that makes everything brighter. Whenever life felt a bit too loud or confusing, just talking to you made it all drift away.</p>
        <p style="margin-bottom: 6px;">Today, I want to celebrate YOU. All the beauty, kindness, and light you bring to the world.</p>
-       <p style="text-align: right; font-style: italic;">With all my love,<br>Your Childhood Bestie 💕</p>
+       <p style="text-align: right; font-style: italic;">With all my love,<br>Your Childhood Bestie</p>
     </div>
 </div>
                             <div class="envelope-front"></div>
                             <div class="envelope-top" id="envelope-top"></div>
                             <div class="wax-seal" id="wax-seal" aria-label="Break the wax seal to open the letter">
-                                <div class="wax-design">🤍</div>
+                                <div class="wax-design">✧</div>
                             </div>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
         <!-- SECTION 4: THE SCRAPBOOK GALLERY -->
         <section id="gallery-section" class="scene" aria-labelledby="gallery-title">
             <div class="scene-content">
-                <h2 id="gallery-title" class="title-serif text-center">Scrapbook of Us 🌸</h2>
+                <h2 id="gallery-title" class="title-serif text-center">Scrapbook of Us</h2>
                 <p class="instruction-text text-center">Every picture has a story. Click the card to flip and read our diary log.</p>
                 <!-- Scrapbook Board — single dynamically rendered 3D flip polaroid card -->
                 <div class="scrapbook-board">
@@ -268,7 +268,7 @@
 
                 <div class="gallery-navigation text-center">
                     <button id="next-to-wish" class="cute-btn">
-                        <span>Make a Birthday Wish 🏺</span>
+                        <span>Make a Birthday Wish</span>
                         <svg class="arrow-icon-right" viewBox="0 0 24 24" width="18" height="18">
                             <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                         </svg>
@@ -315,7 +315,7 @@
                         <form id="wish-form" class="wish-form">
                              <textarea id="wish-input" class="wish-input-box" placeholder="Your wish goes here..." maxlength="150" required aria-label="Write your birthday wish"></textarea>
                             <button type="submit" class="cute-btn send-wish-btn">
-                                <span>Release Lantern 🏮</span>
+                                <span>Release Lantern</span>
                             </button>
                         </form>
                     </div>
@@ -324,7 +324,7 @@
                 <!-- Final ending page showing wishes, glowing ambient lantern counter -->
                 <div class="lantern-counter hidden" id="lantern-counter-pane">
                     <p class="subtitle-handwritten">Your wishes are drifting into the stars...</p>
-                    <p class="final-thank-you">Happy Birthday, my wonderful friend! Let's stay best friends forever. 🤍</p>
+                    <p class="final-thank-you">Happy Birthday, my wonderful friend! Let's stay best friends forever.</p>
                     <button id="restart-btn" class="restart-link">Return to the beginning</button>
                 </div>
             </div>
@@ -347,7 +347,7 @@
             <p class="letter-body">
                 Today, I want to celebrate YOU. All the beauty, kindness, and light you bring to the world. I hope this birthday brings you as much happiness as you've given me every single day.
             </p>
-            <p class="letter-signature">With all my love,<br><span class="sig-name">Your Childhood Bestie 💕</span></p>
+            <p class="letter-signature">With all my love,<br><span class="sig-name">Your Childhood Bestie</span></p>
         </div>
         <div class="letter-next-row">
             <button id="next-to-gallery" class="cute-btn">
@@ -361,6 +361,6 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="script.js?v=12"></script>
+    <script src="script.js?v=13"></script>
 </body>
 </html>
