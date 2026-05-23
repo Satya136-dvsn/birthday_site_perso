@@ -114,37 +114,49 @@ window.addEventListener('resize', () => {
 
 
 // Particle Base Class
-class PetalStar {
+class DreamParticle {
     constructor() {
         this.reset();
+        // Disperse fully on initialization
+        this.y = Math.random() * height;
+        this.x = Math.random() * width;
     }
 
     reset() {
         this.x = Math.random() * width;
-        this.y = -20 - Math.random() * 50;
-        this.speedY = Math.random() * 0.6 + 0.3;
-        this.speedX = Math.random() * 0.4 - 0.2;
-        this.opacity = Math.random() * 0.22 + 0.08; // Softer, more muted opacity
-        this.rotation = Math.random() * Math.PI;
-        this.rotationSpeed = Math.random() * 0.012 - 0.006;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = Math.random() * 0.008 - 0.004;
         
-        // Cozy type selection: mix of petals, sparkles, colored hearts, and tiny pastel emojis
-        const r = Math.random();
-        if (r < 0.25) {
-            this.type = 'petal';
-            this.size = Math.random() * 6 + 4;
-        } else if (r < 0.50) {
-            this.type = 'sparkle';
-            this.size = Math.random() * 5 + 3;
-        } else if (r < 0.75) {
-            this.type = 'heart';
-            this.color = ['#FFB6C1', '#FFC0CB', '#E86F70', '#B58484', '#DCAEAE', '#E0B0FF', '#FF9999'][Math.floor(Math.random() * 7)];
-            this.size = Math.random() * 8 + 10;
+        // 10% chance to be a subtle sakura petal, 90% chance to be dreamy bokeh light
+        if (Math.random() < 0.1) {
+            this.type = 'sakura';
+            this.size = Math.random() * 4 + 3; // tiny, subtle petal
+            this.speedY = Math.random() * 0.3 + 0.15; // slow drifting down
+            this.speedX = Math.random() * 0.2 - 0.1;
+            this.opacity = Math.random() * 0.3 + 0.15; 
+            this.y = -20; // start above screen when respawning
         } else {
-            this.type = 'emoji';
-            // Hearts, sparkles, petals, stars, cute childish & dramatic emojis
-            this.char = ['🦄', '🌈', '🍭', '🧸', '🎀', '🎈', '🧁', '🍰', '🌸', '✨', '💖', '🦋', '🍼', '🍦', '🧚‍♀️', '🪄', '👑', '🎪'][Math.floor(Math.random() * 18)];
-            this.size = Math.random() * 8 + 16;
+            this.type = 'bokeh';
+            this.size = Math.random() * 60 + 30; // large, soft out-of-focus orbs
+            this.speedY = (Math.random() - 0.5) * 0.15; // extremely slow drift
+            this.speedX = (Math.random() - 0.5) * 0.15;
+            this.opacity = Math.random() * 0.15 + 0.05; // very faint
+            
+            // Warm dreamy cinematic tones (peaches, light pinks, lavenders)
+            const colors = [
+                '255, 240, 245', // Lavender blush
+                '255, 228, 225', // Misty rose
+                '253, 245, 230', // Old lace
+                '230, 230, 250'  // Lavender
+            ];
+            this.colorRGB = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Slow pulse
+            this.pulseSpeed = Math.random() * 0.008 + 0.004;
+            this.pulsePhase = Math.random() * Math.PI * 2;
+            
+            // Start anywhere vertically when respawning
+            this.y = Math.random() > 0.5 ? height + this.size : -this.size;
         }
     }
 
@@ -153,111 +165,62 @@ class PetalStar {
         this.x += this.speedX;
         this.rotation += this.rotationSpeed;
         
-        // Wrap around bottom
-        if (this.y > height + 20) {
-            this.reset();
+        if (this.type === 'bokeh') {
+            this.pulsePhase += this.pulseSpeed;
         }
+        
+        // Wrap around gently
+        if (this.speedY > 0 && this.y > height + this.size + 10) {
+            this.reset();
+            this.y = -this.size;
+        } else if (this.speedY < 0 && this.y < -this.size - 10) {
+            this.reset();
+            this.y = height + this.size;
+        }
+        
+        if (this.x > width + this.size + 10) this.x = -this.size;
+        if (this.x < -this.size - 10) this.x = width + this.size;
     }
 
     draw() {
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(this.rotation);
-        ctx.globalAlpha = this.opacity;
         
-        if (this.type === 'petal') {
-            // Draw soft organic petal shape
-            ctx.fillStyle = Math.random() > 0.5 ? '#FFC0CB' : '#FFF5EE';
+        if (this.type === 'sakura') {
+            ctx.globalAlpha = this.opacity;
+            ctx.fillStyle = '#FFB6C1'; // Soft pink petal
             ctx.beginPath();
-            ctx.ellipse(0, 0, this.size * 0.5, this.size * 0.75, 0, 0, Math.PI * 2);
+            // Subtle, elegant petal shape
+            ctx.moveTo(0, -this.size);
+            ctx.bezierCurveTo(this.size, -this.size, this.size, this.size * 0.5, 0, this.size);
+            ctx.bezierCurveTo(-this.size, this.size * 0.5, -this.size, -this.size, 0, -this.size);
             ctx.fill();
-        } else if (this.type === 'sparkle') {
-            // Draw 4-point gold star sparkle
-            ctx.fillStyle = '#F3E5AB'; // Gold
-            ctx.beginPath();
-            for (let i = 0; i < 4; i++) {
-                ctx.rotate(Math.PI / 2);
-                ctx.lineTo(0, -this.size * 0.75);
-                ctx.lineTo(this.size * 0.15, 0);
+        } else if (this.type === 'bokeh') {
+            // Elegant slow pulsing opacity
+            const currentOpacity = Math.max(0, this.opacity + Math.sin(this.pulsePhase) * 0.08);
+            if (currentOpacity > 0) {
+                // Soft radial gradient for out-of-focus bokeh look
+                const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, this.size);
+                grad.addColorStop(0, `rgba(${this.colorRGB}, ${currentOpacity})`);
+                grad.addColorStop(0.5, `rgba(${this.colorRGB}, ${currentOpacity * 0.5})`);
+                grad.addColorStop(1, `rgba(${this.colorRGB}, 0)`);
+                
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+                ctx.fill();
             }
-            ctx.closePath();
-            ctx.fill();
-        } else if (this.type === 'heart') {
-            // Draw soft organic vector heart with custom matching color
-            ctx.fillStyle = this.color;
-            ctx.beginPath();
-            ctx.moveTo(0, -this.size * 0.25);
-            ctx.bezierCurveTo(-this.size * 0.5, -this.size * 0.75, -this.size * 1.0, -this.size * 0.1, 0, this.size * 0.75);
-            ctx.bezierCurveTo(this.size * 1.0, -this.size * 0.1, this.size * 0.5, -this.size * 0.75, 0, -this.size * 0.25);
-            ctx.closePath();
-            ctx.fill();
-        } else if (this.type === 'emoji') {
-            // Draw tiny pastel emojis in the background
-            ctx.font = `${this.size * 1.2}px "Quicksand", "Segoe UI Symbol", sans-serif`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(this.char, 0, 0);
         }
-        ctx.restore();
-    }
-}
-
-// Sparkle Trail Class
-class MouseSparkle {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.size = Math.random() * 5 + 3;
-        this.vx = (Math.random() - 0.5) * 1.5;
-        this.vy = (Math.random() - 0.5) * 1.5 - 0.5; // slight upward drift
-        this.opacity = 1;
-        this.decay = Math.random() * 0.03 + 0.015;
-        this.color = `hsl(${Math.random() * 30 + 340}, 100%, 85%)`; // soft warm hues
-    }
-
-    update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        this.opacity -= this.decay;
-    }
-
-    draw() {
-        ctx.save();
-        ctx.globalAlpha = this.opacity;
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        // Star sparkle shape
-        const r = this.size;
-        ctx.moveTo(this.x, this.y - r);
-        ctx.quadraticCurveTo(this.x, this.y, this.x + r, this.y);
-        ctx.quadraticCurveTo(this.x, this.y, this.x, this.y + r);
-        ctx.quadraticCurveTo(this.x, this.y, this.x - r, this.y);
-        ctx.quadraticCurveTo(this.x, this.y, this.x, this.y - r);
-        ctx.closePath();
-        ctx.fill();
+        
         ctx.restore();
     }
 }
 
 // Initialize Background Particles
-for (let i = 0; i < 45; i++) {
-    particles.push(new PetalStar());
-    // disperse them vertically initially
-    particles[i].y = Math.random() * height;
+for (let i = 0; i < 30; i++) { // Less dense for a cinematic, uncluttered feel
+    particles.push(new DreamParticle());
 }
-
-// Track mouse movement
-window.addEventListener('mousemove', (e) => {
-    mouseTrail.push(new MouseSparkle(e.clientX, e.clientY));
-    if (mouseTrail.length > 50) mouseTrail.shift();
-});
-
-// Mobile Touch support
-window.addEventListener('touchmove', (e) => {
-    if (e.touches.length > 0) {
-        mouseTrail.push(new MouseSparkle(e.touches[0].clientX, e.touches[0].clientY));
-    }
-});
 
 // Canvas Loop
 function animateCanvas() {
@@ -268,17 +231,6 @@ function animateCanvas() {
         p.update();
         p.draw();
     });
-
-    // Update & draw mouse sparkles
-    for (let i = mouseTrail.length - 1; i >= 0; i--) {
-        const s = mouseTrail[i];
-        s.update();
-        if (s.opacity <= 0) {
-            mouseTrail.splice(i, 1);
-        } else {
-            s.draw();
-        }
-    }
     
     requestAnimationFrame(animateCanvas);
 }
