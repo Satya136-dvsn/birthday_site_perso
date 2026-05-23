@@ -127,22 +127,24 @@ class DreamParticle {
         this.rotation = Math.random() * Math.PI * 2;
         this.rotationSpeed = Math.random() * 0.008 - 0.004;
         
-        // 10% chance to be a subtle sakura petal, 90% chance to be dreamy bokeh light
-        if (Math.random() < 0.1) {
+        // 25% chance to be a subtle sakura petal, 75% chance to be dreamy bokeh light
+        if (Math.random() < 0.25) {
             this.type = 'sakura';
-            this.size = Math.random() * 4 + 3; // tiny, subtle petal
-            this.speedY = Math.random() * 0.3 + 0.15; // slow drifting down
-            this.speedX = Math.random() * 0.2 - 0.1;
-            this.opacity = Math.random() * 0.3 + 0.15; 
-            this.y = -20; // start above screen when respawning
+            this.size = Math.random() * 5 + 5; // slightly larger petal
+            this.speedY = Math.random() * 0.5 + 0.2; // drifting down gracefully
+            this.speedX = Math.random() * 0.3 - 0.15;
+            this.opacity = Math.random() * 0.4 + 0.2; 
+            
+            // Start above screen
+            this.y = -this.size - 20; 
         } else {
             this.type = 'bokeh';
-            this.size = Math.random() * 60 + 30; // large, soft out-of-focus orbs
-            this.speedY = (Math.random() - 0.5) * 0.15; // extremely slow drift
-            this.speedX = (Math.random() - 0.5) * 0.15;
+            this.size = Math.random() * 60 + 40; // large, soft out-of-focus orbs
+            this.speedY = (Math.random() - 0.5) * 0.25; // slow drift
+            this.speedX = (Math.random() - 0.5) * 0.25;
             this.opacity = Math.random() * 0.15 + 0.05; // very faint
             
-            // Warm dreamy cinematic tones (peaches, light pinks, lavenders)
+            // Warm dreamy cinematic tones
             const colors = [
                 '255, 240, 245', // Lavender blush
                 '255, 228, 225', // Misty rose
@@ -155,8 +157,12 @@ class DreamParticle {
             this.pulseSpeed = Math.random() * 0.008 + 0.004;
             this.pulsePhase = Math.random() * Math.PI * 2;
             
-            // Start anywhere vertically when respawning
-            this.y = Math.random() > 0.5 ? height + this.size : -this.size;
+            // Start off-screen based on direction
+            if (this.speedY > 0) {
+                this.y = -this.size - 20; // moving down, start top
+            } else {
+                this.y = height + this.size + 20; // moving up, start bottom
+            }
         }
     }
 
@@ -169,17 +175,15 @@ class DreamParticle {
             this.pulsePhase += this.pulseSpeed;
         }
         
-        // Wrap around gently
-        if (this.speedY > 0 && this.y > height + this.size + 10) {
+        // Reset when moving fully off screen vertically
+        if ((this.speedY > 0 && this.y > height + this.size + 20) || 
+            (this.speedY < 0 && this.y < -this.size - 20)) {
             this.reset();
-            this.y = -this.size;
-        } else if (this.speedY < 0 && this.y < -this.size - 10) {
-            this.reset();
-            this.y = height + this.size;
         }
         
-        if (this.x > width + this.size + 10) this.x = -this.size;
-        if (this.x < -this.size - 10) this.x = width + this.size;
+        // Wrap around gently horizontally
+        if (this.x > width + this.size + 20) this.x = -this.size;
+        if (this.x < -this.size - 20) this.x = width + this.size;
     }
 
     draw() {
@@ -218,7 +222,7 @@ class DreamParticle {
 }
 
 // Initialize Background Particles
-for (let i = 0; i < 30; i++) { // Less dense for a cinematic, uncluttered feel
+for (let i = 0; i < 40; i++) { // Slightly denser to ensure we see enough petals and bokeh
     particles.push(new DreamParticle());
 }
 
