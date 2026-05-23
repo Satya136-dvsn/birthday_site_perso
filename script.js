@@ -387,6 +387,23 @@ function startBellLoop() {
 
 
 
+// Attempt to start audio immediately (may be blocked by browser autoplay policy)
+setTimeout(() => {
+    if (!STATE.audioInitialized) initAudioSystem();
+}, 500);
+
+// Global fallback: start audio on the very first user interaction (click or touch)
+const startAudioOnInteract = () => {
+    if (!STATE.audioInitialized) {
+        initAudioSystem();
+    }
+    // Remove the listener after the first interaction
+    document.removeEventListener('click', startAudioOnInteract);
+    document.removeEventListener('touchstart', startAudioOnInteract);
+};
+document.addEventListener('click', startAudioOnInteract, { once: true });
+document.addEventListener('touchstart', startAudioOnInteract, { once: true });
+
 // Toggle sound control
 const musicToggle = document.getElementById('music-toggle');
 const musicWave = document.getElementById('music-wave');
