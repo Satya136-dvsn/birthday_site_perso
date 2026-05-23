@@ -590,9 +590,9 @@ function triggerConfetti() {
         confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
         confetti.style.opacity = Math.random() * 0.7 + 0.3;
         
-        // Animation params
-        const duration = Math.random() * 2 + 1.5;
-        confetti.style.animation = `fallConfetti ${duration}s cubic-bezier(0.1, 0.8, 0.3, 1) forwards`;
+        // Animation params (slow, dreamy fall)
+        const duration = Math.random() * 4 + 4; // 4 to 8 seconds
+        confetti.style.animation = `fallConfetti ${duration}s linear forwards`;
         
         document.body.appendChild(confetti);
         
