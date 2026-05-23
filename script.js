@@ -515,8 +515,6 @@ lightBtn.addEventListener('click', () => {
             setTimeout(() => {
                 flame.classList.remove('lighting');
             }, 460);
-
-            if (STATE.audioInitialized) playBellNote(440 + i * 80);
         }, i * 160);
     });
 
@@ -558,15 +556,15 @@ function extinguishCandle(index) {
     flame.classList.remove('lighting');
     flame.classList.add('blown-out');
 
-    // After animation, lock it into extinguished state
+    // After animation, lock it into extinguished state (slowed down)
     setTimeout(() => {
         flame.classList.remove('blown-out');
         flame.classList.add('extinguished');
-    }, 280);
+    }, 1200);
 
-    if (STATE.audioInitialized) playBellNote(440 + index * 60);
-
-    // Check if all blown out
+    // Audio removed for extinguish action as per user request
+    
+    // Check if ALL candles are out
     if (STATE.candlesLit.every(lit => !lit)) {
         setTimeout(triggerCakeSuccess, 350);
     }

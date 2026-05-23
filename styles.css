@@ -370,22 +370,28 @@ html, body {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 14px 32px;
-    background: linear-gradient(135deg, #FFF3C4, #FFD166);
-    color: #5C4A22;
-    font-family: var(--font-sans);
-    font-size: 1.1rem;
+    padding: 14px 40px;
+    background: rgba(255, 230, 150, 0.3); /* soft glowing yellow glass */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 215, 0, 0.5); /* soft gold border */
+    color: var(--primary-dark);
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
     font-weight: 700;
-    border: none;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(255, 200, 50, 0.35);
-    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.3s ease;
+    box-shadow: 0 8px 24px rgba(255, 200, 50, 0.25);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease, background 0.25s ease;
 }
-.light-btn:hover  { transform: scale(1.06); box-shadow: 0 10px 28px rgba(255,200,50,.5); }
+.light-btn:hover  { 
+    transform: translateY(-2px) scale(1.04); 
+    background: rgba(255, 230, 150, 0.5);
+    box-shadow: 0 12px 32px rgba(255, 200, 50, 0.4); 
+}
 .light-btn:active { transform: scale(0.96); }
 .light-btn.hidden { display: none; }
-.light-icon { font-size: 1.3rem; }
+.light-icon { font-size: 1.4rem; }
 
 /* Blow button */
 .blow-btn {
@@ -484,17 +490,17 @@ html, body {
     animation: lightUp 0.45s ease-out forwards;
 }
 
-/* Blown-out: instant puff-shrink */
+/* Blown-out: slow puff and fade out */
 .flame.blown-out {
-    animation: blowOut 0.25s ease-out forwards !important;
+    animation: blowOut 1.2s ease-out forwards !important;
     pointer-events: none;
     cursor: default;
 }
 
 @keyframes blowOut {
     0%   { opacity: 1; transform: scaleY(1)   scaleX(1);   }
-    40%  { opacity: 0.8; transform: scaleY(1.3) scaleX(0.7); }
-    100% { opacity: 0; transform: scaleY(0)   scaleX(0);   }
+    15%  { opacity: 0.8; transform: scaleY(1.3) scaleX(0.7); }
+    100% { opacity: 0; transform: scaleY(0.2) scaleX(0.2) translateY(-15px); }
 }
 
 /* Fully extinguished (after animation ends) */
