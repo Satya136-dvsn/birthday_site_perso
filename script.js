@@ -283,6 +283,13 @@ function initAudioSystem() {
         delayNode.connect(masterVolume);
         
         STATE.audioInitialized = true;
+        STATE.musicPlaying = true; // Critical: Must be true for loops to execute
+        
+        // Update UI button to reflect playing state
+        const wave = document.getElementById('music-wave');
+        if (wave) wave.classList.add('playing');
+        const toggle = document.getElementById('music-toggle');
+        if (toggle) toggle.setAttribute('title', 'Pause music');
         
         // Start continuous music loop
         startChordLoop();
