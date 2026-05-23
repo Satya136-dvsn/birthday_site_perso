@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Bestie! ✨</title>
+    <meta name="description" content="A premium digital scrapbook filled with cozy memories, starry wishes, and handwritten love for my childhood best friend.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=9">
+</head>
+<body>
+    <!-- Background Canvas for Dreamy Stars and Particles -->
+    <canvas id="ambient-canvas"></canvas>
+
+    <!-- Global Sound Controller & Progress Bar -->
+    <div class="global-controls">
+        <button id="music-toggle" class="control-btn" aria-label="Toggle background music" title="Play soft music">
+            <svg class="music-icon" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="currentColor" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+            </svg>
+            <span class="music-wave" id="music-wave">
+                <span></span><span></span><span></span>
+            </span>
+        </button>
+    </div>
+
+    <!-- MAIN EXPERIENCE CONTAINER -->
+    <main class="experience-container">
+        
+        <!-- SECTION 1: THE WELCOME GATE -->
+        <section id="welcome-section" class="scene active" aria-labelledby="welcome-title">
+            <div class="welcome-card glass-panel">
+                <div class="card-deco-top">🌸 ✦ 🌸</div>
+                <h1 id="welcome-title" class="title-serif">Hello, My Favourite Person... 🤍</h1>
+                <p class="subtitle-handwritten" id="welcome-typing"></p>
+                <div class="sparkle-divider">✦ 🌟 ✦</div>
+                <button id="unwrap-btn" class="cute-btn" type="button">
+                    <span>Unwrap the Gift</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" width="18" height="18">
+                        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12l7 7 7-7"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 2: THE BIRTHDAY CAKE -->
+        <section id="cake-section" class="scene" aria-labelledby="cake-title">
+            <div class="scene-content">
+                <h2 id="cake-title" class="title-serif text-center">Make a Wish ✨</h2>
+                <p class="instruction-text text-center" id="cake-instruction">
+                    First light the candles, make a wish, then blow them all out!
+                </p>
+
+                <!-- Cake Controls -->
+                <div class="cake-controls">
+                    <!-- Light Candles Button -->
+                    <button id="light-btn" class="light-btn" type="button" aria-label="Light the candles">
+                        <span class="light-icon">🕯️</span>
+                        <span>Light Candles</span>
+                    </button>
+
+                    <!-- Blow Button (hidden until candles are lit) -->
+                    <button id="blow-btn" class="blow-btn hidden" type="button" aria-label="Blow out the candles">
+                        <span class="blow-icon">💨</span>
+                        <span>Blow!</span>
+                    </button>
+                </div>
+
+
+
+                <!-- SVG Cake Container -->
+                <div class="cake-container">
+                    <div class="glow-shadow"></div>
+                    <svg class="cake-svg" viewBox="0 0 300 300" width="300" height="300">
+                        <!-- Plate / Stand -->
+                        <path d="M110 245 L100 275 C100 280, 200 280, 200 275 L190 245 Z" fill="#F3ECE4" stroke="#E2DBD3" stroke-width="1.5" />
+                        <ellipse cx="150" cy="245" rx="120" ry="12" fill="#FAF9F6" stroke="#E2DBD3" stroke-width="2" />
+                        
+                        <!-- Cake Base Layer -->
+                        <path d="M55 165 L55 235 C55 248, 245 248, 245 235 L245 165 Z" fill="#FFF5EE" stroke="#F1E3D8" stroke-width="0.5" />
+                        <ellipse cx="150" cy="235" rx="95" ry="13" fill="#FFF2EA" />
+                        <!-- Decorative Base Drips -->
+                        <path d="M55 165 C65 175, 75 175, 85 165 C95 175, 105 175, 115 165 C125 178, 135 178, 145 165 C155 175, 165 175, 175 165 C185 178, 195 178, 205 165 C215 175, 225 175, 235 165 C241 170, 245 170, 245 165 L245 175 C245 188, 55 188, 55 175 Z" fill="#FFC0CB" opacity="0.9" />
+                        
+                        <!-- Pastel Sprinkles on Base Layer -->
+                        <rect x="75" y="200" width="8" height="3" rx="1.5" fill="#B0E0E6" transform="rotate(15 75 200)" />
+                        <rect x="110" y="215" width="8" height="3" rx="1.5" fill="#FFFFD0" transform="rotate(-20 110 215)" />
+                        <rect x="150" y="220" width="8" height="3" rx="1.5" fill="#E0B0FF" transform="rotate(30 150 220)" />
+                        <rect x="190" y="210" width="8" height="3" rx="1.5" fill="#FFB6C1" transform="rotate(-15 190 210)" />
+                        <rect x="220" y="198" width="8" height="3" rx="1.5" fill="#B0E0E6" transform="rotate(45 220 198)" />
+
+                        <!-- Cake Top Layer -->
+                        <path d="M75 105 L75 165 C75 175, 225 175, 225 165 L225 105 Z" fill="#FFF9F9" stroke="#ECE0E1" stroke-width="0.5" />
+                        <ellipse cx="150" cy="165" rx="75" ry="10" fill="#FFF6F7" />
+                        
+                        <!-- Dripping Frosting on Top Layer -->
+                        <path d="M75 105 C85 115, 95 115, 105 105 C115 115, 125 115, 135 105 C145 118, 155 118, 165 105 C175 115, 185 115, 195 105 C205 118, 215 118, 225 105 L225 115 C225 125, 75 125, 75 115 Z" fill="#E86F70" opacity="0.8" />
+                        <ellipse cx="150" cy="105" rx="75" ry="10" fill="#FFEAEB" />
+
+                        <!-- Whipped Cream Dollops on Top Layer Rim -->
+                        <circle cx="85" cy="108" r="6" fill="#FAF9F6" />
+                        <circle cx="106" cy="111" r="6" fill="#FAF9F6" />
+                        <circle cx="128" cy="113" r="6" fill="#FAF9F6" />
+                        <circle cx="150" cy="114" r="6" fill="#FAF9F6" />
+                        <circle cx="172" cy="113" r="6" fill="#FAF9F6" />
+                        <circle cx="194" cy="111" r="6" fill="#FAF9F6" />
+                        <circle cx="215" cy="108" r="6" fill="#FAF9F6" />
+
+                        <!-- Detailed Strawberries -->
+                        <!-- Strawberry 1 -->
+                        <g id="strawberry-1">
+                            <path d="M 110 105 C 104 105, 100 95, 110 88 C 120 95, 116 105, 110 105 Z" fill="#E86F70" />
+                            <path d="M 110 88 L 107 86 L 110 89 L 113 86 Z" fill="#A8D8B9" />
+                            <circle cx="107" cy="98" r="0.6" fill="#FFE4E1" />
+                            <circle cx="113" cy="98" r="0.6" fill="#FFE4E1" />
+                            <circle cx="110" cy="101" r="0.6" fill="#FFE4E1" />
+                        </g>
+                        <!-- Strawberry 2 -->
+                        <g id="strawberry-2">
+                            <path d="M 150 107 C 144 107, 140 97, 150 90 C 160 97, 156 107, 150 107 Z" fill="#E86F70" />
+                            <path d="M 150 90 L 147 88 L 150 91 L 153 88 Z" fill="#A8D8B9" />
+                            <circle cx="147" cy="100" r="0.6" fill="#FFE4E1" />
+                            <circle cx="153" cy="100" r="0.6" fill="#FFE4E1" />
+                            <circle cx="150" cy="103" r="0.6" fill="#FFE4E1" />
+                        </g>
+                        <!-- Strawberry 3 -->
+                        <g id="strawberry-3">
+                            <path d="M 190 105 C 184 105, 180 95, 190 88 C 200 95, 196 105, 190 105 Z" fill="#E86F70" />
+                            <path d="M 190 88 L 187 86 L 190 89 L 193 86 Z" fill="#A8D8B9" />
+                            <circle cx="187" cy="98" r="0.6" fill="#FFE4E1" />
+                            <circle cx="193" cy="98" r="0.6" fill="#FFE4E1" />
+                            <circle cx="190" cy="101" r="0.6" fill="#FFE4E1" />
+                        </g>
+
+                        <!-- Candle 1 -->
+                        <g class="candle" id="candle-1">
+                            <ellipse cx="115" cy="100" rx="7" ry="2.5" fill="#DCAEAE" />
+                            <rect x="110" y="55" width="10" height="45" fill="#E0B0FF" rx="1.5" />
+                            <path d="M 105 60 L 125 50 M 105 70 L 125 60 M 105 80 L 125 70 M 105 90 L 125 80" stroke="#FFF" stroke-width="2" clip-path="url(#candle-clip-1)" />
+                            <!-- Candle Wick -->
+                            <line x1="115" y1="55" x2="115" y2="46" stroke="#4A3B32" stroke-width="1.8" />
+                            <!-- Flame -->
+                            <path class="flame blown-out" id="flame-0" d="M 115 46 C 104 35, 110 18, 115 12 C 120 18, 126 35, 115 46 Z" fill="url(#flame-grad)" filter="url(#glow-filter)" />
+                        </g>
+
+                        <!-- Candle 2 (Middle) -->
+                        <g class="candle" id="candle-2">
+                            <ellipse cx="150" cy="103" rx="7" ry="2.5" fill="#DCAEAE" />
+                            <rect x="145" y="45" width="10" height="58" fill="#B0E0E6" rx="1.5" />
+                            <path d="M 140 50 L 160 40 M 140 60 L 160 50 M 140 70 L 160 60 M 140 80 L 160 70 M 140 90 L 160 80" stroke="#FFF" stroke-width="2" clip-path="url(#candle-clip-2)" />
+                            <line x1="150" y1="45" x2="150" y2="36" stroke="#4A3B32" stroke-width="1.8" />
+                            <path class="flame blown-out" id="flame-1" d="M 150 36 C 139 25, 145 8, 150 2 C 155 8, 161 25, 150 36 Z" fill="url(#flame-grad)" filter="url(#glow-filter)" />
+                        </g>
+
+                        <!-- Candle 3 -->
+                        <g class="candle" id="candle-3">
+                            <ellipse cx="185" cy="100" rx="7" ry="2.5" fill="#DCAEAE" />
+                            <rect x="180" y="55" width="10" height="45" fill="#FFFFD0" rx="1.5" />
+                            <path d="M 175 60 L 195 50 M 175 70 L 195 60 M 175 80 L 195 70 M 175 90 L 195 80" stroke="#FFF" stroke-width="2" clip-path="url(#candle-clip-3)" />
+                            <line x1="185" y1="55" x2="185" y2="46" stroke="#4A3B32" stroke-width="1.8" />
+                            <path class="flame blown-out" id="flame-2" d="M 185 46 C 174 35, 180 18, 185 12 C 190 18, 196 35, 185 46 Z" fill="url(#flame-grad)" filter="url(#glow-filter)" />
+                        </g>
+                        
+                        <!-- Definitions for Gradients, Clips, and Filters -->
+                        <defs>
+                            <clipPath id="candle-clip-1">
+                                <rect x="110" y="55" width="10" height="45" rx="1.5" />
+                            </clipPath>
+                            <clipPath id="candle-clip-2">
+                                <rect x="145" y="45" width="10" height="58" rx="1.5" />
+                            </clipPath>
+                            <clipPath id="candle-clip-3">
+                                <rect x="180" y="55" width="10" height="45" rx="1.5" />
+                            </clipPath>
+                            <radialGradient id="flame-grad" cx="50%" cy="80%" r="50%">
+                                <stop offset="0%" stop-color="#FFF7C2" />
+                                <stop offset="30%" stop-color="#FFA500" />
+                                <stop offset="70%" stop-color="#FF4500" />
+                                <stop offset="100%" stop-color="#FF4500" stop-opacity="0" />
+                            </radialGradient>
+                            <filter id="glow-filter" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="3" result="blur" />
+                                <feMerge>
+                                    <feMergeNode in="blur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="after-blow-message hidden" id="cake-success-msg">
+                    <p class="success-text title-serif">Yay! Happy Birthday! 🎉🌸</p>
+                    <button id="next-to-letter" class="cute-btn">
+                        <span>Read Your Letter</span>
+                        <svg class="arrow-icon-right" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: THE WAX-SEALED LETTER -->
+        <section id="letter-section" class="scene" aria-labelledby="letter-title">
+            <div class="scene-content flex-center-col" style="gap:0; width:100%;">
+                <h2 id="letter-title" class="sr-only">Your Handwritten Letter</h2>
+
+                <!-- Stage 1: Envelope trigger -->
+                <div id="envelope-stage">
+                    <p class="instruction-text text-center" style="margin-bottom:14px;">✨ Tap the wax seal to open your letter</p>
+                    <div class="envelope-wrapper" id="envelope-wrapper">
+                        <div class="envelope">
+                            <div class="envelope-back"></div>
+                            <div class="letter-paper">
+<div style="font-size: 7px; padding: 15px; color: #888; font-family: var(--font-serif); line-height: 1.5; opacity: 0.6; filter: blur(0.5px);">
+       <h3 style="font-size: 9px; margin-bottom: 6px; font-weight: normal;">Dearest Bestie,</h3>
+       <p style="margin-bottom: 4px;">I sat down to write this because, honestly, how do you put years of late-night giggles, shared secrets, and countless cups of tea into a single card?</p>
+       <p style="margin-bottom: 4px;">From the days when we had nothing but wild dreams to this exact moment, you have been my anchor, my constant cheerleader, and my absolute favorite human.</p>
+       <p style="margin-bottom: 4px;">You have this quiet magic about you that makes everything brighter. Whenever life felt a bit too loud or confusing, just talking to you made it all drift away.</p>
+       <p style="margin-bottom: 6px;">Today, I want to celebrate YOU. All the beauty, kindness, and light you bring to the world.</p>
+       <p style="text-align: right; font-style: italic;">With all my love,<br>Your Childhood Bestie 💕</p>
+    </div>
+</div>
+                            <div class="envelope-front"></div>
+                            <div class="envelope-top" id="envelope-top"></div>
+                            <div class="wax-seal" id="wax-seal" aria-label="Break the wax seal to open the letter">
+                                <div class="wax-design">🤍</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- (letter card moved to body level to avoid stacking context blur) -->
+
+            </div>
+        </section>
+
+        <!-- SECTION 4: THE SCRAPBOOK GALLERY -->
+        <section id="gallery-section" class="scene" aria-labelledby="gallery-title">
+            <div class="scene-content">
+                <h2 id="gallery-title" class="title-serif text-center">Scrapbook of Us 🌸</h2>
+                <p class="instruction-text text-center">Every picture has a story. Click the card to flip and read our diary log.</p>
+                <!-- Scrapbook Board — single dynamically rendered 3D flip polaroid card -->
+                <div class="scrapbook-board">
+                    <div id="scrapbook-card-container"></div>
+                </div>
+
+                <!-- Page toggles for no-scroll design -->
+                <div class="scrapbook-pagination flex-center" style="gap: 16px; margin: 15px 0 25px 0;">
+                    <button id="prev-page-btn" class="cute-btn page-control" disabled style="padding: 6px 14px; font-size: 0.9rem;">
+                        <span>◀ Prev</span>
+                    </button>
+                    <span class="page-indicator" style="font-family: var(--font-serif); font-size: 1rem; color: var(--text-main); min-width: 80px; text-align: center;">
+                        Page <span id="current-page-num" style="font-weight: bold; color: var(--primary-dark);">1</span> of 12
+                    </span>
+                    <button id="next-page-btn" class="cute-btn page-control" style="padding: 6px 14px; font-size: 0.9rem;">
+                        <span>Next ▶</span>
+                    </button>
+                </div>
+
+                <div class="gallery-navigation text-center">
+                    <button id="next-to-wish" class="cute-btn">
+                        <span>Make a Birthday Wish 🏺</span>
+                        <svg class="arrow-icon-right" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: THE WISH JAR -->
+        <section id="wish-section" class="scene" aria-labelledby="wish-title">
+            <div class="scene-content flex-center-col">
+                <div class="wish-card glass-panel text-center" style="position: relative;">
+                    <div class="card-deco-top">✦ 🏺 ✦</div>
+                    <h2 id="wish-title" class="title-serif">The Magical Wish Jar</h2>
+                    <p class="instruction-text">Type a beautiful wish for our friendship, lock it in the jar, and release a lantern into the cosmic sky.</p>
+                    
+                    <!-- Jar & Input Form -->
+                    <div class="wish-form-wrapper">
+                        <div class="wish-jar-svg-container">
+                            <svg class="jar-svg" viewBox="0 0 100 140" width="100" height="140">
+                                <!-- Jar Lid -->
+                                <rect x="35" y="10" width="30" height="10" fill="#E6C280" rx="3" />
+                                <rect x="32" y="18" width="36" height="5" fill="#C89D50" rx="1" />
+                                <!-- Jar Body -->
+                                <path d="M35 23 L30 40 C20 50, 20 120, 30 130 C40 135, 60 135, 70 130 C80 120, 80 50, 70 40 L65 23 Z" fill="rgba(255, 255, 255, 0.15)" stroke="rgba(255, 255, 255, 0.5)" stroke-width="2.5" />
+                                <!-- Jar Inner Glow -->
+                                <path d="M38 27 L33 42 C25 51, 25 115, 33 124 C41 129, 59 129, 67 124 C75 115, 75 51, 67 42 L62 27 Z" fill="url(#jar-glow)" opacity="0.4" />
+                                <!-- Glowing stars inside jar -->
+                                <circle class="jar-star star-1" cx="50" cy="80" r="3" fill="#FFF" />
+                                <circle class="jar-star star-2" cx="38" cy="95" r="2.5" fill="#FFE4E1" />
+                                <circle class="jar-star star-3" cx="62" cy="70" r="2" fill="#FFF0F5" />
+                                <circle class="jar-star star-4" cx="55" cy="110" r="3.5" fill="#FFF7C2" />
+                                
+                                <defs>
+                                    <radialGradient id="jar-glow" cx="50%" cy="60%" r="50%">
+                                        <stop offset="0%" stop-color="#FFE4E1" />
+                                        <stop offset="60%" stop-color="#FFD700" />
+                                        <stop offset="100%" stop-color="#FFA500" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        
+                        <form id="wish-form" class="wish-form">
+                             <textarea id="wish-input" class="wish-input-box" placeholder="Your wish goes here..." maxlength="150" required aria-label="Write your birthday wish"></textarea>
+                            <button type="submit" class="cute-btn send-wish-btn">
+                                <span>Release Lantern 🏮</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Final ending page showing wishes, glowing ambient lantern counter -->
+                <div class="lantern-counter hidden" id="lantern-counter-pane">
+                    <p class="subtitle-handwritten">Your wishes are drifting into the stars...</p>
+                    <p class="final-thank-you">Happy Birthday, my wonderful friend! Let's stay best friends forever. 🤍</p>
+                    <button id="restart-btn" class="restart-link">Return to the beginning</button>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Letter backdrop + card — must be direct body children (outside all transformed sections) -->
+    <div id="letter-backdrop" class="letter-backdrop"></div>
+    <div id="letter-card" class="letter-card hidden">
+        <div class="letter-lines"></div>
+        <div class="letter-card-inner">
+            <h3 class="letter-header">Dearest Bestie,</h3>
+            <p class="letter-body">
+                I sat down to write this because, honestly, how do you put years of late-night giggles, shared secrets, and countless cups of tea into a single card? From the days when we had nothing but wild dreams to this exact moment, you have been my anchor, my constant cheerleader, and my absolute favorite human.
+            </p>
+            <p class="letter-body">
+                You have this quiet magic about you that makes everything brighter. Whenever life felt a bit too loud or confusing, just talking to you made it all drift away. Thank you for knowing me better than anyone else, for laughing at my terrible jokes, and for staying by my side through all the seasons of growing up.
+            </p>
+            <p class="letter-body">
+                Today, I want to celebrate YOU. All the beauty, kindness, and light you bring to the world. I hope this birthday brings you as much happiness as you've given me every single day.
+            </p>
+            <p class="letter-signature">With all my love,<br><span class="sig-name">Your Childhood Bestie 💕</span></p>
+        </div>
+        <div class="letter-next-row">
+            <button id="next-to-gallery" class="cute-btn">
+                <span>Open Scrapbook</span>
+                <svg class="arrow-icon-right" viewBox="0 0 24 24" width="18" height="18">
+                    <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js?v=9"></script>
+</body>
+</html>
