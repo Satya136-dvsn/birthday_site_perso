@@ -127,13 +127,13 @@ class DreamParticle {
         this.rotation = Math.random() * Math.PI * 2;
         this.rotationSpeed = Math.random() * 0.008 - 0.004;
         
-        // 25% chance to be a subtle sakura petal, 75% chance to be dreamy bokeh light
-        if (Math.random() < 0.25) {
+        // 40% chance to be a subtle sakura petal, 60% chance to be dreamy bokeh light
+        if (Math.random() < 0.40) {
             this.type = 'sakura';
-            this.size = Math.random() * 5 + 5; // slightly larger petal
+            this.size = Math.random() * 6 + 4; // slightly varied petal size
             this.speedY = Math.random() * 0.5 + 0.2; // drifting down gracefully
-            this.speedX = Math.random() * 0.3 - 0.15;
-            this.opacity = Math.random() * 0.4 + 0.2; 
+            this.speedX = Math.random() * 0.4 - 0.2;
+            this.opacity = Math.random() * 0.5 + 0.2; 
             
             // Start above screen
             this.y = -this.size - 20; 
@@ -222,7 +222,7 @@ class DreamParticle {
 }
 
 // Initialize Background Particles
-for (let i = 0; i < 40; i++) { // Slightly denser to ensure we see enough petals and bokeh
+for (let i = 0; i < 90; i++) { // Much denser to make the page look full and magical
     particles.push(new DreamParticle());
 }
 
