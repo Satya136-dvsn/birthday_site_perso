@@ -385,20 +385,7 @@ function startBellLoop() {
     }
 }
 
-// Play little success chime sound
-function playSuccessChime() {
-    try {
-        if (!audioCtx) return;
-        const notes = [392.00, 523.25, 659.25, 783.99]; // G4 - C5 - E5 - G5 arpeggio
-        notes.forEach((freq, idx) => {
-            setTimeout(() => {
-                playBellNote(freq);
-            }, idx * 140);
-        });
-    } catch (e) {
-        console.warn("Failed to play success chime:", e);
-    }
-}
+
 
 // Toggle sound control
 const musicToggle = document.getElementById('music-toggle');
@@ -623,25 +610,8 @@ function triggerCakeSuccess() {
     const controlsEl = document.querySelector('.cake-controls');
     if (controlsEl) controlsEl.classList.add('hidden');
     
-    // Sound activation wrapped in a defensive try-catch
-    try {
-        if (!STATE.audioInitialized) {
-            initAudioSystem();
-        }
-        if (audioCtx) {
-            STATE.musicPlaying = true;
-            audioCtx.resume();
-            if (masterVolume && masterVolume.gain) {
-                masterVolume.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 0.5);
-            }
-            if (musicWave) musicWave.classList.add('playing');
-            startChordLoop();
-            startBellLoop();
-            playSuccessChime();
-        }
-    } catch (soundError) {
-        console.warn("Sound activation bypassed due to audio constraints:", soundError);
-    }
+    // Audio is already running from the blowBtn/lightBtn interactions,
+    // so we let the background music continue seamlessly.
     
     try {
         triggerConfetti();
