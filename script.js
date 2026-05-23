@@ -23,73 +23,73 @@ const DIARY_DATA = [
     {
         title: "Where it all began...",
         date: "June 12, 2012",
-        desc: "The playground where we first met. We were both so shy, but we ended up spending hours on these wooden swings arguing about who could go higher. Who knew that swing set would be the start of a lifetime of laughter?",
+        desc: "The playground where we first met. We were both so shy, but we ended up spending hours on these wooden swings arguing about who could go higher. Who knew that swing set would be the start of a lifetime of laughter? 🌅",
         image: "assets/memory_swings.png"
     },
     {
         title: "Chasing shooting stars",
         date: "August 18, 2016",
-        desc: "Lying on a blanket on the grassy hill, counting shooting stars. We talked about what we wanted to be when we grew up, making a silent pact that no matter where life took us, we'd always stargaze together.",
+        desc: "Lying on a blanket on the grassy hill, counting shooting stars. We talked about what we wanted to be when we grew up, making a silent pact that no matter where life took us, we'd always stargaze together. 💫",
         image: "assets/memory_stargazing.png"
     },
     {
         title: "Cake & endless gossips",
         date: "September 03, 2021",
-        desc: "Sharing giant slices of strawberry cake at that cozy little corner cafe. You always eat the cherries first, and I always steal the frosting when you aren't looking. Simple moments that feel like home.",
+        desc: "Sharing giant slices of strawberry cake at that cozy little corner cafe. You always eat the cherries first, and I always steal the frosting when you aren't looking. Simple moments that feel like home. 🍰",
         image: "assets/memory_cafe.png"
     },
     {
         title: "Secrets locked forever",
         date: "October 14, 2024",
-        desc: "Our old notebook of promises, doodles, and silly inside jokes that make zero sense to anyone else. It's safe to say our secrets are locked forever in our memory vaults.",
+        desc: "Our old notebook of promises, doodles, and silly inside jokes that make zero sense to anyone else. It's safe to say our secrets are locked forever in our memory vaults. 🔐",
         image: "assets/memory_notebook.png"
     },
     {
         title: "Picnic on the hill",
         date: "May 08, 2025",
-        desc: "Spent a sunny afternoon on the hillside picnic. Surrounded by wild daisies and sweet strawberries, we laughed so hard our ribs hurt just telling the silliest stories.",
+        desc: "Spent a sunny afternoon on the hillside picnic. Surrounded by wild daisies and sweet strawberries, we laughed so hard our ribs hurt just telling the silliest stories. 🌸",
         image: "assets/memory_picnic.png"
     },
     {
         title: "Dancing in the rain",
         date: "July 22, 2025",
-        desc: "Got completely caught in an unexpected summer downpour without an umbrella! Instead of running, we just danced under the warm street lamps, soaked to the bone and completely happy.",
+        desc: "Got completely caught in an unexpected summer downpour without an umbrella! Instead of running, we just danced under the warm street lamps, soaked to the bone and completely happy. ☔",
         image: "assets/memory_rain.png"
     },
     {
         title: "Golden hour forever",
         date: "August 30, 2025",
-        desc: "Sitting quietly on the warm sand watching the beach sunset. As the sky turned a million shades of pink and orange, we promised to always chase these golden moments together.",
+        desc: "Sitting quietly on the warm sand watching the beach sunset. As the sky turned a million shades of pink and orange, we promised to always chase these golden moments together. 🌊",
         image: "assets/memory_beach.png"
     },
     {
         title: "Our favourite corner",
         date: "November 11, 2025",
-        desc: "Tucked away in the quiet library corner, sharing one book under fairy lights. We whispered so many jokes and got shushed by the librarian at least three times!",
+        desc: "Tucked away in the quiet library corner, sharing one book under fairy lights. We whispered so many jokes and got shushed by the librarian at least three times! 📚",
         image: "assets/memory_library.png"
     },
     {
         title: "Cozy campfire nights",
         date: "December 24, 2025",
-        desc: "Gathered around a crackling campfire, roasting marshmallows and wrapping ourselves in thick blankets. Singing acoustic songs off-key and talking about the future under a canopy of sparks.",
+        desc: "Gathered around a crackling campfire, roasting marshmallows and wrapping ourselves in thick blankets. Singing acoustic songs off-key and talking about the future under a canopy of sparks. 🔥",
         image: "assets/memory_campfire.png"
     },
     {
         title: "First winter snow",
         date: "January 15, 2026",
-        desc: "Waking up to a world completely covered in pristine white snow. We ran outside like kids, built a tiny snowman, and then warmed up with extra large mugs of hot chocolate topped with marshmallows.",
+        desc: "Waking up to a world completely covered in pristine white snow. We ran outside like kids, built a tiny snowman, and then warmed up with extra large mugs of hot chocolate topped with marshmallows. ❄️",
         image: "assets/memory_snow.png"
     },
     {
         title: "Rooftop stargazing",
         date: "March 21, 2026",
-        desc: "Sneaking up to the rooftop after midnight with a box of hot pizza. The city lights stretched out below us like a second galaxy, and we sat on the edge whispering our hopes for the years ahead.",
+        desc: "Sneaking up to the rooftop after midnight with a box of hot pizza. The city lights stretched out below us like a second galaxy, and we sat on the edge whispering our hopes for the years ahead. 🍕",
         image: "assets/memory_rooftop.png"
     },
     {
         title: "Sunset on the hill",
         date: "April 05, 2026",
-        desc: "Running up the grassy hill just in time to catch the sun dipping below the horizon. As the orange sky faded into a warm purple twilight, we agreed that some of the best moments are the simplest ones.",
+        desc: "Running up the grassy hill just in time to catch the sun dipping below the horizon. As the orange sky faded into a warm purple twilight, we agreed that some of the best moments are the simplest ones. 🌅",
         image: "assets/memory_sunset_hill.png"
     }
 ];
