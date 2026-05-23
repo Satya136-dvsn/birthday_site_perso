@@ -142,9 +142,9 @@ class PetalStar {
             this.size = Math.random() * 8 + 10;
         } else {
             this.type = 'emoji';
-            // Hearts, sparkles, petals, stars, cute cozy emojis
-            this.char = ['🌸', '✨', '🎈', '🧁', '🎀', '💫', '🌟', '🍀', '🧸', '💖', '🍭', '🌼', '🐣', '🍓'][Math.floor(Math.random() * 14)];
-            this.size = Math.random() * 6 + 14;
+            // Hearts, sparkles, petals, stars, cute childish & dramatic emojis
+            this.char = ['🦄', '🌈', '🍭', '🧸', '🎀', '🎈', '🧁', '🍰', '🌸', '✨', '💖', '🦋', '🍼', '🍦', '🧚‍♀️', '🪄', '👑', '🎪'][Math.floor(Math.random() * 18)];
+            this.size = Math.random() * 8 + 16;
         }
     }
 
