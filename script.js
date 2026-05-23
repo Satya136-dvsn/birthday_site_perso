@@ -719,7 +719,6 @@ waxSeal.addEventListener('click', (e) => {
     if (waxSeal.classList.contains('broken')) return;
 
     if (!STATE.audioInitialized) initAudioSystem();
-    playBellNote(587.33);
 
     // 1. Crack the seal
     waxSeal.classList.add('broken');
@@ -741,7 +740,6 @@ waxSeal.addEventListener('click', (e) => {
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 letterCard.classList.add('visible');
-                if (STATE.audioInitialized) playBellNote(523.25);
             });
         });
     }, 1100);
@@ -802,9 +800,6 @@ function renderScrapbookCard(pageIndex) {
     const card = cardContainer.querySelector('.polaroid-card-3d');
     card.addEventListener('click', () => {
         card.classList.toggle('flipped');
-        if (STATE.audioInitialized) {
-            playBellNote(card.classList.contains('flipped') ? 587.33 : 523.25);
-        }
     });
 }
 
@@ -824,10 +819,6 @@ function changeScrapbookPage(newPage) {
 
         cardContainer.style.opacity = '1';
         cardContainer.style.transform = 'scale(1)';
-
-        if (STATE.audioInitialized) {
-            playBellNote(440 + (currentScrapbookPage % 4) * 40);
-        }
     }, 300);
 }
 
@@ -874,9 +865,7 @@ wishForm.addEventListener('submit', (e) => {
     // Release a glowing lantern into the screen sky
     createFloatingLantern();
     
-    // Play magical gold bell
     if (!STATE.audioInitialized) initAudioSystem();
-    playBellNote(783.99); // high G note
     
     STATE.wishesReleased++;
     
