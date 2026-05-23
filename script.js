@@ -566,7 +566,7 @@ function extinguishCandle(index) {
     
     // Check if ALL candles are out
     if (STATE.candlesLit.every(lit => !lit)) {
-        setTimeout(triggerCakeSuccess, 350);
+        setTimeout(triggerCakeSuccess, 1200); // Wait for the 1.2s slow fade-out CSS animation
     }
 }
 
@@ -588,8 +588,8 @@ function triggerConfetti() {
         confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
         confetti.style.opacity = Math.random() * 0.7 + 0.3;
         
-        // Animation params (slow, dreamy fall)
-        const duration = Math.random() * 4 + 4; // 4 to 8 seconds
+        // Animation params (very slow, dreamy fall)
+        const duration = Math.random() * 6 + 6; // 6 to 12 seconds
         confetti.style.animation = `fallConfetti ${duration}s linear forwards`;
         
         document.body.appendChild(confetti);
