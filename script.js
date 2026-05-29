@@ -1,4 +1,122 @@
 /* ==========================================================================
+   GATE SYSTEM — Countdown + Passcode
+   ========================================================================== */
+
+(function () {
+    const UNLOCK_DATE = new Date('2026-07-22T00:00:00'); // July 22, 2026 midnight
+    const PASSCODE    = '2207';
+
+    const countdownGate = document.getElementById('countdown-gate');
+    const passcodeGate  = document.getElementById('passcode-gate');
+    const errorMsg      = document.getElementById('passcode-error');
+    const dots          = [
+        document.getElementById('dot-1'),
+        document.getElementById('dot-2'),
+        document.getElementById('dot-3'),
+        document.getElementById('dot-4'),
+    ];
+
+    let entered = '';
+
+    // ── Check which gate to show ──────────────────────────────────────────
+    function checkGate() {
+        const now = new Date();
+        if (now < UNLOCK_DATE) {
+            // Before birthday — show countdown
+            countdownGate.classList.remove('hidden');
+            passcodeGate.classList.add('hidden');
+            startCountdown();
+        } else {
+            // Birthday day or after — show passcode
+            countdownGate.classList.add('hidden');
+            passcodeGate.classList.remove('hidden');
+        }
+    }
+
+    // ── Live countdown ticker ─────────────────────────────────────────────
+    function startCountdown() {
+        function tick() {
+            const diff = UNLOCK_DATE - new Date();
+            if (diff <= 0) {
+                // Time's up — switch to passcode gate without page reload
+                countdownGate.classList.add('hidden');
+                passcodeGate.classList.remove('hidden');
+                return;
+            }
+            const d  = Math.floor(diff / 86400000);
+            const h  = Math.floor((diff % 86400000) / 3600000);
+            const m  = Math.floor((diff % 3600000) / 60000);
+            const s  = Math.floor((diff % 60000) / 1000);
+            document.getElementById('cd-days').textContent  = String(d).padStart(2, '0');
+            document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+            document.getElementById('cd-mins').textContent  = String(m).padStart(2, '0');
+            document.getElementById('cd-secs').textContent  = String(s).padStart(2, '0');
+            setTimeout(tick, 1000);
+        }
+        tick();
+    }
+
+    // ── Passcode numpad logic ─────────────────────────────────────────────
+    function updateDots() {
+        dots.forEach((dot, i) => {
+            dot.classList.remove('filled', 'error');
+            if (i < entered.length) dot.classList.add('filled');
+        });
+    }
+
+    function shakeError() {
+        dots.forEach(dot => {
+            dot.classList.remove('filled');
+            dot.classList.add('error');
+        });
+        errorMsg.classList.remove('hidden');
+        setTimeout(() => {
+            entered = '';
+            dots.forEach(dot => dot.classList.remove('error'));
+            updateDots();
+        }, 800);
+    }
+
+    function tryUnlock() {
+        if (entered === PASSCODE) {
+            // Correct! — beautiful fade-out then reveal the site
+            passcodeGate.classList.add('unlocking');
+            setTimeout(() => {
+                passcodeGate.classList.add('hidden');
+                passcodeGate.classList.remove('unlocking');
+            }, 800);
+        } else {
+            shakeError();
+        }
+    }
+
+    document.querySelectorAll('.numpad-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const n      = btn.dataset.n;
+            const action = btn.dataset.action;
+
+            if (action === 'clear') {
+                entered = entered.slice(0, -1);
+                errorMsg.classList.add('hidden');
+                updateDots();
+            } else if (action === 'enter') {
+                tryUnlock();
+            } else if (n !== undefined && entered.length < 4) {
+                entered += n;
+                updateDots();
+                // Auto-submit when 4 digits entered
+                if (entered.length === 4) {
+                    setTimeout(tryUnlock, 200);
+                }
+            }
+        });
+    });
+
+    // Run gate check on load
+    checkGate();
+})();
+
+/* ==========================================================================
    STATE MANAGEMENT & CONFIGURATION
    ========================================================================== */
 const STATE = {

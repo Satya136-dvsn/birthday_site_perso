@@ -12,11 +12,73 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=21">
+    <link rel="stylesheet" href="styles.css?v=22">
 </head>
 <body>
     <!-- Background Canvas for Dreamy Stars and Particles -->
     <canvas id="ambient-canvas"></canvas>
+
+    <!-- GATE 1: COUNTDOWN — shown before July 22, 2026 -->
+    <div id="countdown-gate">
+        <div class="gate-content">
+            <div class="gate-deco">🌸 ✦ 🌸</div>
+            <h1 class="gate-title">Something magical<br>is being prepared…</h1>
+            <p class="gate-subtitle">A very special surprise is waiting for you on</p>
+            <div class="gate-date">July 22, 2026 🎂</div>
+            <div class="countdown-grid">
+                <div class="countdown-unit">
+                    <span id="cd-days" class="countdown-num">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit">
+                    <span id="cd-hours" class="countdown-num">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit">
+                    <span id="cd-mins" class="countdown-num">00</span>
+                    <span class="countdown-label">Mins</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit">
+                    <span id="cd-secs" class="countdown-num">00</span>
+                    <span class="countdown-label">Secs</span>
+                </div>
+            </div>
+            <p class="gate-hint">Come back on your special day 💕</p>
+        </div>
+    </div>
+
+    <!-- GATE 2: PASSCODE — shown on/after July 22, 2026 -->
+    <div id="passcode-gate" class="hidden">
+        <div class="gate-content">
+            <div class="gate-deco">🔐 ✦ 🌸</div>
+            <h1 class="gate-title">Your surprise is here…</h1>
+            <p class="gate-subtitle">Enter your secret passcode to unlock 🗝️</p>
+            <div class="passcode-dots">
+                <span class="dot" id="dot-1"></span>
+                <span class="dot" id="dot-2"></span>
+                <span class="dot" id="dot-3"></span>
+                <span class="dot" id="dot-4"></span>
+            </div>
+            <div class="numpad">
+                <button class="numpad-btn" data-n="1">1</button>
+                <button class="numpad-btn" data-n="2">2</button>
+                <button class="numpad-btn" data-n="3">3</button>
+                <button class="numpad-btn" data-n="4">4</button>
+                <button class="numpad-btn" data-n="5">5</button>
+                <button class="numpad-btn" data-n="6">6</button>
+                <button class="numpad-btn" data-n="7">7</button>
+                <button class="numpad-btn" data-n="8">8</button>
+                <button class="numpad-btn" data-n="9">9</button>
+                <button class="numpad-btn numpad-clear" data-action="clear">✕</button>
+                <button class="numpad-btn" data-n="0">0</button>
+                <button class="numpad-btn numpad-enter" data-action="enter">✓</button>
+            </div>
+            <p class="passcode-error hidden" id="passcode-error">Hmm, that's not right… try again 💭</p>
+        </div>
+    </div>
 
     <!-- Global Sound Controller & Progress Bar -->
     <div class="global-controls">
@@ -361,6 +423,6 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="script.js?v=21"></script>
+    <script src="script.js?v=22"></script>
 </body>
 </html>
