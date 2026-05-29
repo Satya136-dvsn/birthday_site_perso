@@ -63,7 +63,7 @@ html, body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 20; /* Brought to front so petals drift gracefully over the glass panels */
+    z-index: 1100; /* Above gate screens (z-index: 1000) so petals float over everything */
     pointer-events: none;
 }
 
