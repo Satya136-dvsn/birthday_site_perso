@@ -112,8 +112,50 @@
         });
     });
 
+    // ── Dev bypass: ?preview=true skips all gates ────────────────────────
+    const DEV_BYPASS = new URLSearchParams(window.location.search).get('preview') === 'true';
+
     // Run gate check on load
-    checkGate();
+    if (DEV_BYPASS) {
+        // Skip everything — hide both gates immediately
+        countdownGate.classList.add('hidden');
+        passcodeGate.classList.add('hidden');
+    } else {
+        checkGate();
+    }
+
+    // ── Spawn cute floating background elements ───────────────────────────
+    const FLOATIES = ['🌸','✨','💕','🌟','🎀','🍭','🌈','💫','🎈','🦋','🍓','☁️','🌙','⭐','💖','🌺'];
+    function spawnFloaties() {
+        const container = document.createElement('div');
+        container.id = 'gate-floaties';
+        container.style.cssText = `
+            position:fixed; inset:0; z-index:999; pointer-events:none; overflow:hidden;
+        `;
+        document.body.appendChild(container);
+
+        for (let i = 0; i < 28; i++) {
+            const el = document.createElement('span');
+            el.textContent = FLOATIES[Math.floor(Math.random() * FLOATIES.length)];
+            const size  = Math.random() * 22 + 14;   // 14–36px
+            const left  = Math.random() * 100;        // % across screen
+            const delay = Math.random() * 12;         // stagger start
+            const dur   = Math.random() * 10 + 12;   // 12–22s per loop
+            const sway  = Math.random() * 60 - 30;   // drift left/right
+            el.style.cssText = `
+                position:absolute;
+                left:${left}%;
+                bottom:-80px;
+                font-size:${size}px;
+                opacity:0;
+                animation: floatUp ${dur}s ${delay}s ease-in-out infinite;
+                --sway: ${sway}px;
+                filter: drop-shadow(0 2px 6px rgba(220,174,174,0.35));
+            `;
+            container.appendChild(el);
+        }
+    }
+    spawnFloaties();
 })();
 
 /* ==========================================================================

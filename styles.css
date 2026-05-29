@@ -101,6 +101,14 @@ html, body {
     100% { opacity: 0; transform: scale(1.08); display: none; }
 }
 
+/* Cute floating emoji elements behind the gate card */
+@keyframes floatUp {
+    0%   { opacity: 0;   transform: translateY(0)     translateX(0)             rotate(0deg);   }
+    10%  { opacity: 0.8; }
+    80%  { opacity: 0.6; }
+    100% { opacity: 0;   transform: translateY(-110vh) translateX(var(--sway))  rotate(360deg); }
+}
+
 .gate-content {
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(20px);
