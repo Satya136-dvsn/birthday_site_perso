@@ -2,19 +2,19 @@
    DESIGN TOKENS & ROOT VARIABLES
    ========================================================================== */
 :root {
-    --bg-main: #FFF5EE; /* Peach cream */
-    --bg-gradient: linear-gradient(135deg, #FFE6FA 0%, #E8F0FE 25%, #FFF0F5 50%, #FFFDE7 75%, #E6E6FA 100%);
-    --panel-bg: rgba(255, 255, 255, 0.55);
-    --panel-border: rgba(255, 182, 193, 0.6);
+    --bg-main: #1C122E; /* Royal midnight purple */
+    --bg-gradient: linear-gradient(135deg, #10061e 0%, #1c0f2e 35%, #2a1845 70%, #442866 100%);
+    --panel-bg: rgba(26, 15, 38, 0.68); /* Tinted purple glassmorphism */
+    --panel-border: rgba(255, 200, 87, 0.35); /* Thin glowing gold border */
     
     /* Colors */
-    --primary: #DCAEAE;      /* Dusty rose */
-    --primary-dark: #B58484; /* Deep rose */
+    --primary: #FFC857;      /* Warm golden yellow */
+    --primary-dark: #FFB01C; /* Corona golden core */
     --accent: #E5C158;       /* Gold glow */
     --accent-soft: #FFF7C2;  /* Soft candle yellow */
-    --text-main: #5C4A42;    /* Cozy charcoal brown */
-    --text-muted: #8E7A70;   /* Muted brown */
-    --white-warm: #FAF9F6;   /* Warm white */
+    --text-main: #FFF5EE;    /* Warm candlelit off-white */
+    --text-muted: #C0B2CF;   /* Soft lavender gray text */
+    --white-warm: #22143B;   /* Deep purple-tinted card panels */
     
     /* Fonts */
     --font-serif: 'Playfair Display', serif;
@@ -2392,5 +2392,263 @@ html, body {
         gap: 4px;
     }
 }
+
+/* ==========================================================================
+   TANGLED / RAPUNZEL BACKGROUND & FLOATING LANTERNS
+   ========================================================================== */
+
+/* Ambient Floating Lanterns */
+.floating-lantern {
+    position: fixed; /* Changed from absolute to fixed for viewport-based tracking */
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2; /* Below the main cards, behind everything */
+    transform-origin: center bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px 8px 3px 3px;
+    box-shadow: 0 0 25px rgba(255, 179, 71, 0.95), 
+                inset 0 0 10px rgba(255, 255, 255, 0.4);
+    animation: floatLantern var(--duration) linear infinite;
+    animation-delay: var(--delay);
+    background: linear-gradient(to bottom, #FFE890 0%, #FFB650 60%, #E26830 100%);
+    opacity: 0;
+}
+
+@keyframes floatLantern {
+    0% {
+        transform: translateY(var(--y-start, 110vh)) translateX(0) scale(var(--scale)) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.95;
+    }
+    85% {
+        opacity: 0.85;
+    }
+    100% {
+        transform: translateY(var(--y-end, -20vh)) translateX(var(--sway)) scale(calc(var(--scale) * 1.35)) rotate(var(--rot));
+        opacity: 0;
+    }
+}
+
+/* Gold outlines & royal dividers for panels */
+.glass-panel {
+    border-color: rgba(255, 200, 87, 0.45) !important; /* Gold glowing borders */
+    box-shadow: 0 16px 45px rgba(42, 24, 69, 0.6), 
+                0 0 20px rgba(255, 200, 87, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+.cute-btn {
+    background: linear-gradient(135deg, #FFC857 0%, #FFB01C 100%) !important;
+    border-color: #E5C158 !important;
+    color: #1C122E !important; /* Midnight purple text for contrast */
+    font-weight: 700 !important;
+    box-shadow: 0 8px 24px rgba(255, 200, 87, 0.3) !important;
+}
+
+.cute-btn::before {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%) !important;
+}
+
+.cute-btn:hover {
+    box-shadow: 0 12px 28px rgba(255, 200, 87, 0.5) !important;
+    border-color: #FFF !important;
+    color: #000 !important;
+}
+
+.numpad-btn {
+    background: rgba(42, 24, 69, 0.6) !important;
+    border-color: rgba(255, 200, 87, 0.3) !important;
+    color: #FFF5EE !important;
+}
+.numpad-btn:hover {
+    background: rgba(255, 200, 87, 0.25) !important;
+    border-color: rgba(255, 200, 87, 0.8) !important;
+}
+
+.numpad-enter {
+    background: linear-gradient(135deg, rgba(255,200,87,0.4), rgba(255,176,28,0.3)) !important;
+    color: #FFC857 !important;
+}
+
+.countdown-num {
+    background: rgba(26, 15, 38, 0.8) !important;
+    border-color: rgba(255, 200, 87, 0.4) !important;
+    color: #FFC857 !important;
+    box-shadow: 0 4px 15px rgba(255, 200, 87, 0.15) !important;
+}
+
+/* Wax seal Corona purple with golden sun crest - Premium 3D design */
+.wax-seal {
+    background: radial-gradient(circle, #5D3A9B 0%, #3A1F66 70%, #220F3D 100%) !important; /* Beautiful glowing royal purple wax */
+    box-shadow: 
+        0 4px 18px rgba(255, 200, 87, 0.55), 
+        0 0 25px rgba(93, 58, 155, 0.4),
+        inset 0 3px 5px rgba(255, 255, 255, 0.4), 
+        inset 0 -3px 5px rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid rgba(255, 200, 87, 0.35);
+    z-index: 10;
+}
+.wax-seal svg path {
+    fill: #FFD700 !important; /* Bright royal gold sun crest inside the purple wax seal */
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4)) !important;
+}
+.wax-seal svg circle {
+    fill: #FFE57F !important;
+}
+
+/* Beautiful warm ancient parchment envelope cover using matching borders and inner purple linings */
+.envelope-back {
+    background: linear-gradient(135deg, #FAF0D9 0%, #E8D5AC 100%) !important; /* Warm ancient parchment base */
+    border: 3.5px solid #FFC857 !important; /* Rich gold royal border lining */
+    box-shadow: 
+        0 15px 45px rgba(0, 0, 0, 0.65), 
+        0 0 35px rgba(255, 200, 87, 0.35),
+        inset 0 0 0 3px #4A2475 !important; /* Deep royal purple inner lining */
+}
+
+.envelope-front {
+    border-bottom-color: #E2CF9F !important; /* Shaded bottom parchment triangle */
+    filter: drop-shadow(0 -5px 10px rgba(0,0,0,0.2));
+}
+.envelope-front::after {
+    border-left-color: #D6C291 !important; /* Shaded left parchment triangle */
+}
+.envelope-front::before {
+    border-right-color: #CBB683 !important; /* Shaded right parchment triangle */
+}
+.envelope-top {
+    border-top-color: #ECE0BF !important; /* Light top parchment fold */
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.25));
+}
+
+/* Gold flower sparkles on blowout */
+@keyframes sparklerFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; filter: blur(0px); }
+    100% { transform: translateY(105vh) rotate(540deg); opacity: 0; filter: blur(1.5px); }
+}
+.confetti-piece {
+    background: #FFC857 !important; /* All gold sparks for Rapunzel blowout magic */
+    box-shadow: 0 0 8px rgba(255, 200, 87, 0.8);
+    border-radius: 50% !important; /* Round glowing magic seeds */
+}
+
+/* ==========================================================================
+   TANGLED SCRAPBOOK & LETTER VISUAL IMPROVEMENTS
+   ========================================================================== */
+
+/* Immersive Midnight Backdrop for Letter opening */
+.letter-backdrop {
+    background: rgba(16, 6, 30, 0.94) !important;
+}
+
+/* Gold/Charcoal High-Contrast Letter Paper - Styled as a Royal Ancient Parchment Invitation */
+.letter-card {
+    /* Multi-layered background: realistic, organic weathered parchment paper texture overlay + rich golden sepia radial gradient */
+    background-image: 
+        url("data:image/svg+xml,%3Csvg%20viewBox='0%200%20200%20200'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter%20id='noiseFilter'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.6'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23noiseFilter)'%20opacity='0.035'/%3E%3C/svg%3E"), 
+        radial-gradient(circle at center, #FFFDF7 0%, #FAF0D4 60%, #E6CE92 100%) !important;
+    border: 4px double #E5C158 !important; /* Double-line royal gold border */
+    border-left: 8px solid #FFC857 !important; /* Thick glowing gold royal marker edge */
+    box-shadow: 
+        0 15px 45px rgba(0, 0, 0, 0.65), 
+        0 0 35px rgba(255, 200, 87, 0.35),
+        inset 0 0 0 3px #4A2475, /* Royal purple inner lining perfectly matches envelope cover! */
+        inset 0 0 45px rgba(106, 68, 25, 0.32) !important; /* Rich weathered brown/sepia burnished vignette edges */
+    border-radius: 24px 14px 28px 18px / 18px 28px 14px 24px !important; /* Organic, slightly irregular handmade paper shape! */
+}
+.letter-card::after {
+    content: "";
+    position: absolute;
+    inset: 12px; /* Sits just inside the borders */
+    border: 1px solid rgba(255, 200, 87, 0.25);
+    border-radius: 16px;
+    pointer-events: none;
+    z-index: 10;
+    /* Draws gorgeous, ornate filigree gold corner brackets with beads (fully percent-encoded for Chrome/mobile support) */
+    background-image: 
+        url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cpath%20d='M%205%2020%20C%205%2012,%2012%205,%2020%205%20L%2012%205%20C%208%205,%205%208,%205%2012%20Z%20M%2095%2020%20C%2095%2012,%2088%205,%2080%205%20L%2088%205%20C%2092%205,%2095%208,%2095%2012%20Z%20M%205%2080%20C%205%2088,%2012%2095,%2020%2095%20L%2012%2095%20C%208%2095,%205%2092,%205%2088%20Z%20M%2095%2080%20C%2095%2088,%2088%2095,%2080%2095%20L%2088%2095%20C%2092%2095,%2095%2092,%2095%2088%20Z'%20fill='%23FFC857'/%3E%3Ccircle%20cx='10'%20cy='10'%20r='2.5'%20fill='%23FFC857'/%3E%3Ccircle%20cx='90'%20cy='10'%20r='2.5'%20fill='%23FFC857'/%3E%3Ccircle%20cx='10'%20cy='90'%20r='2.5'%20fill='%23FFC857'/%3E%3Ccircle%20cx='90'%20cy='90'%20r='2.5'%20fill='%23FFC857'/%3E%3C/svg%3E");
+    background-position: top left, top right, bottom left, bottom right;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+}
+.letter-card-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Draws the center Corona Royal Sun watermark (fully percent-encoded) */
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%20opacity='0.04'%3E%3Cpath%20d='M50%2012%20L53%2038%20L77%2020%20L62%2044%20L87%2050%20L62%2056%20L77%2080%20L53%2062%20L50%2088%20L47%2062%20L23%2080%20L38%2056%20L13%2050%20L38%2044%20L23%2020%20L47%2038%20Z'%20fill='%23FFC857'/%3E%3Ccircle%20cx='50'%20cy='50'%20r='16'%20fill='%23FFD700'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 260px;
+    pointer-events: none;
+    z-index: -1;
+}
+.letter-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 34px,
+        rgba(212, 175, 55, 0.12) 34px, /* Soft sepia-gold guidelines for handwriting */
+        rgba(212, 175, 55, 0.12) 35px
+    ) !important;
+    background-position: 0 56px;
+    z-index: 0;
+}
+.letter-header {
+    color: #A36A00 !important; /* Burnished ancient gold title */
+    font-size: 1.85rem !important;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.7);
+}
+.letter-body {
+    color: #3C2E24 !important; /* Ink-dark warm charcoal brown for perfect readability */
+    font-size: 1.15rem !important;
+    line-height: 1.6 !important;
+}
+.letter-signature {
+    color: #A36A00 !important; /* Burnished gold signature label */
+}
+
+/* Polaroid Scrapbook Classic Paper Overrides */
+.polaroid-front {
+    background: #FAF9F6 !important; /* Light analog polaroid borders */
+    border: 1.5px solid rgba(255, 200, 87, 0.2) !important;
+}
+.polaroid-back {
+    background: #FDFAF5 !important; /* Light analog diary note */
+    border-left: 4px solid #FFC857 !important; /* Golden margin marker */
+    border-top: 1.5px solid rgba(255, 200, 87, 0.2) !important;
+    border-right: 1.5px solid rgba(255, 200, 87, 0.2) !important;
+    border-bottom: 1.5px solid rgba(255, 200, 87, 0.2) !important;
+}
+.polaroid-front .polaroid-caption {
+    color: #3C2E24 !important; /* Classic dark charcoal-brown handwritten captions */
+}
+.polaroid-back .diary-date {
+    color: #FFB01C !important; /* Golden date */
+}
+.polaroid-back .diary-title {
+    color: #3C2E24 !important; /* Dark ink title */
+}
+.polaroid-back .diary-text {
+    color: #4C3C30 !important; /* Readable dark grey-brown text */
+}
+.flip-hint, .flip-hint-back {
+    color: #8E7A70 !important; /* Cozy muted text */
+}
+.tape::after {
+    border-left: 4px dashed #FAF9F6 !important; /* Clean torn border colors */
+    border-right: 4px dashed #FAF9F6 !important;
+}
+
+
 
 

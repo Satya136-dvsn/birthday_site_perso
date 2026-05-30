@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, Bestie! ✨</title>
+    <title>Happy Birthday, Bestie! ✨ (Tangled Theme)</title>
     <meta name="description" content="A premium digital scrapbook filled with cozy memories, starry wishes, and handwritten love for my childhood best friend.">
     
     <!-- Google Fonts -->
@@ -12,16 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=25">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Background Canvas for Dreamy Stars and Particles -->
+    <!-- Background Canvas for Dreamy Stars and Floating Lanterns -->
     <canvas id="ambient-canvas"></canvas>
 
     <!-- GATE 1: COUNTDOWN — shown before July 22, 2026 -->
     <div id="countdown-gate">
         <div class="gate-content">
-            <div class="gate-deco">🌸 ✦ 🌸</div>
+            <div class="gate-deco">☀️ ✦ 🏮 ✦ ☀️</div>
             <h1 class="gate-title">Something magical<br>is being prepared…</h1>
             <p class="gate-subtitle">A very special surprise is waiting for you on</p>
             <div class="gate-date">July 22, 2026 🎂</div>
@@ -53,7 +53,7 @@
     <!-- GATE 2: PASSCODE — shown on/after July 22, 2026 -->
     <div id="passcode-gate" class="hidden">
         <div class="gate-content">
-            <div class="gate-deco">🔐 ✦ 🌸</div>
+            <div class="gate-deco">🔐 ✦ ☀️ ✦ 🏮</div>
             <h1 class="gate-title">Your surprise is here…</h1>
             <p class="gate-subtitle">Enter your secret passcode to unlock 🗝️</p>
             <div class="passcode-dots">
@@ -98,10 +98,16 @@
         <!-- SECTION 1: THE WELCOME GATE -->
         <section id="welcome-section" class="scene active" aria-labelledby="welcome-title">
             <div class="welcome-card glass-panel">
-                <div class="card-deco-top">🌸 ✦ 🌸</div>
+                <div class="card-deco-top">
+                    <!-- Corona Royal Sun Crest -->
+                    <svg viewBox="0 0 100 100" width="45" height="45" style="filter: drop-shadow(0 0 10px rgba(255,200,80,0.85));">
+                        <path d="M50 12 L53 38 L77 20 L62 44 L87 50 L62 56 L77 80 L53 62 L50 88 L47 62 L23 80 L38 56 L13 50 L38 44 L23 20 L47 38 Z" fill="#FFC857" />
+                        <circle cx="50" cy="50" r="16" fill="#FFD700" stroke="#FFC857" stroke-width="1" />
+                    </svg>
+                </div>
                 <h1 id="welcome-title" class="title-serif">Hello, My Favourite Person... 🤍</h1>
                 <p class="subtitle-handwritten" id="welcome-typing"></p>
-                <div class="sparkle-divider">✦ 🌟 ✦</div>
+                <div class="sparkle-divider">☀️ ✦ ✨ ✦ ☀️</div>
                 <button id="unwrap-btn" class="cute-btn" type="button">
                     <span>Unwrap the Gift</span>
                     <svg class="arrow-icon" viewBox="0 0 24 24" width="18" height="18">
@@ -134,8 +140,6 @@
                     </button>
                 </div>
 
-
-
                 <!-- SVG Cake Container -->
                 <div class="cake-container">
                     <div class="glow-shadow"></div>
@@ -148,21 +152,21 @@
                         <path d="M55 165 L55 235 C55 248, 245 248, 245 235 L245 165 Z" fill="#FFF5EE" stroke="#F1E3D8" stroke-width="0.5" />
                         <ellipse cx="150" cy="235" rx="95" ry="13" fill="#FFF2EA" />
                         <!-- Decorative Base Drips -->
-                        <path d="M55 165 C65 175, 75 175, 85 165 C95 175, 105 175, 115 165 C125 178, 135 178, 145 165 C155 175, 165 175, 175 165 C185 178, 195 178, 205 165 C215 175, 225 175, 235 165 C241 170, 245 170, 245 165 L245 175 C245 188, 55 188, 55 175 Z" fill="#FFC0CB" opacity="0.9" />
+                        <path d="M55 165 C65 175, 75 175, 85 165 C95 175, 105 175, 115 165 C125 178, 135 178, 145 165 C155 175, 165 175, 175 165 C185 178, 195 178, 205 165 C215 175, 225 175, 235 165 C241 170, 245 170, 245 165 L245 175 C245 188, 55 188, 55 175 Z" fill="#C89D50" opacity="0.9" />
                         
-                        <!-- Pastel Sprinkles on Base Layer -->
-                        <rect x="75" y="200" width="8" height="3" rx="1.5" fill="#B0E0E6" transform="rotate(15 75 200)" />
-                        <rect x="110" y="215" width="8" height="3" rx="1.5" fill="#FFFFD0" transform="rotate(-20 110 215)" />
-                        <rect x="150" y="220" width="8" height="3" rx="1.5" fill="#E0B0FF" transform="rotate(30 150 220)" />
-                        <rect x="190" y="210" width="8" height="3" rx="1.5" fill="#FFB6C1" transform="rotate(-15 190 210)" />
-                        <rect x="220" y="198" width="8" height="3" rx="1.5" fill="#B0E0E6" transform="rotate(45 220 198)" />
+                        <!-- Golden Sprinkles on Base Layer -->
+                        <rect x="75" y="200" width="8" height="3" rx="1.5" fill="#FFC857" transform="rotate(15 75 200)" />
+                        <rect x="110" y="215" width="8" height="3" rx="1.5" fill="#FFEAA5" transform="rotate(-20 110 215)" />
+                        <rect x="150" y="220" width="8" height="3" rx="1.5" fill="#FFD700" transform="rotate(30 150 220)" />
+                        <rect x="190" y="210" width="8" height="3" rx="1.5" fill="#FFEAA5" transform="rotate(-15 190 210)" />
+                        <rect x="220" y="198" width="8" height="3" rx="1.5" fill="#FFC857" transform="rotate(45 220 198)" />
 
                         <!-- Cake Top Layer -->
                         <path d="M75 105 L75 165 C75 175, 225 175, 225 165 L225 105 Z" fill="#FFF9F9" stroke="#ECE0E1" stroke-width="0.5" />
                         <ellipse cx="150" cy="165" rx="75" ry="10" fill="#FFF6F7" />
                         
-                        <!-- Dripping Frosting on Top Layer -->
-                        <path d="M75 105 C85 115, 95 115, 105 105 C115 115, 125 115, 135 105 C145 118, 155 118, 165 105 C175 115, 185 115, 195 105 C205 118, 215 118, 225 105 L225 115 C225 125, 75 125, 75 115 Z" fill="#E86F70" opacity="0.8" />
+                        <!-- Dripping Gold Frosting on Top Layer -->
+                        <path d="M75 105 C85 115, 95 115, 105 105 C115 115, 125 115, 135 105 C145 118, 155 118, 165 105 C175 115, 185 115, 195 105 C205 118, 215 118, 225 105 L225 115 C225 125, 75 125, 75 115 Z" fill="#E6C280" opacity="0.8" />
                         <ellipse cx="150" cy="105" rx="75" ry="10" fill="#FFEAEB" />
 
                         <!-- Whipped Cream Dollops on Top Layer Rim -->
@@ -175,7 +179,6 @@
                         <circle cx="215" cy="108" r="6" fill="#FAF9F6" />
 
                         <!-- Detailed Strawberries -->
-                        <!-- Strawberry 1 -->
                         <g id="strawberry-1">
                             <path d="M 110 105 C 104 105, 100 95, 110 88 C 120 95, 116 105, 110 105 Z" fill="#E86F70" />
                             <path d="M 110 88 L 107 86 L 110 89 L 113 86 Z" fill="#A8D8B9" />
@@ -183,7 +186,6 @@
                             <circle cx="113" cy="98" r="0.6" fill="#FFE4E1" />
                             <circle cx="110" cy="101" r="0.6" fill="#FFE4E1" />
                         </g>
-                        <!-- Strawberry 2 -->
                         <g id="strawberry-2">
                             <path d="M 150 107 C 144 107, 140 97, 150 90 C 160 97, 156 107, 150 107 Z" fill="#E86F70" />
                             <path d="M 150 90 L 147 88 L 150 91 L 153 88 Z" fill="#A8D8B9" />
@@ -191,7 +193,6 @@
                             <circle cx="153" cy="100" r="0.6" fill="#FFE4E1" />
                             <circle cx="150" cy="103" r="0.6" fill="#FFE4E1" />
                         </g>
-                        <!-- Strawberry 3 -->
                         <g id="strawberry-3">
                             <path d="M 190 105 C 184 105, 180 95, 190 88 C 200 95, 196 105, 190 105 Z" fill="#E86F70" />
                             <path d="M 190 88 L 187 86 L 190 89 L 193 86 Z" fill="#A8D8B9" />
@@ -203,18 +204,16 @@
                         <!-- Candle 1 -->
                         <g class="candle" id="candle-1">
                             <ellipse cx="115" cy="100" rx="7" ry="2.5" fill="#DCAEAE" />
-                            <rect x="110" y="55" width="10" height="45" fill="#E0B0FF" rx="1.5" />
+                            <rect x="110" y="55" width="10" height="45" fill="#D2B48C" rx="1.5" />
                             <path d="M 105 60 L 125 50 M 105 70 L 125 60 M 105 80 L 125 70 M 105 90 L 125 80" stroke="#FFF" stroke-width="2" clip-path="url(#candle-clip-1)" />
-                            <!-- Candle Wick -->
                             <line x1="115" y1="55" x2="115" y2="46" stroke="#4A3B32" stroke-width="1.8" />
-                            <!-- Flame -->
                             <path class="flame blown-out" id="flame-0" d="M 115 46 C 104 35, 110 18, 115 12 C 120 18, 126 35, 115 46 Z" fill="url(#flame-grad)" filter="url(#glow-filter)" />
                         </g>
 
                         <!-- Candle 2 (Middle) -->
                         <g class="candle" id="candle-2">
                             <ellipse cx="150" cy="103" rx="7" ry="2.5" fill="#DCAEAE" />
-                            <rect x="145" y="45" width="10" height="58" fill="#B0E0E6" rx="1.5" />
+                            <rect x="145" y="45" width="10" height="58" fill="#FFC857" rx="1.5" />
                             <path d="M 140 50 L 160 40 M 140 60 L 160 50 M 140 70 L 160 60 M 140 80 L 160 70 M 140 90 L 160 80" stroke="#FFF" stroke-width="2" clip-path="url(#candle-clip-2)" />
                             <line x1="150" y1="45" x2="150" y2="36" stroke="#4A3B32" stroke-width="1.8" />
                             <path class="flame blown-out" id="flame-1" d="M 150 36 C 139 25, 145 8, 150 2 C 155 8, 161 25, 150 36 Z" fill="url(#flame-grad)" filter="url(#glow-filter)" />
@@ -223,13 +222,12 @@
                         <!-- Candle 3 -->
                         <g class="candle" id="candle-3">
                             <ellipse cx="185" cy="100" rx="7" ry="2.5" fill="#DCAEAE" />
-                            <rect x="180" y="55" width="10" height="45" fill="#FFFFD0" rx="1.5" />
+                            <rect x="180" y="55" width="10" height="45" fill="#D2B48C" rx="1.5" />
                             <path d="M 175 60 L 195 50 M 175 70 L 195 60 M 175 80 L 195 70 M 175 90 L 195 80" stroke="#FFF" stroke-width="2" clip-path="url(#candle-clip-3)" />
                             <line x1="185" y1="55" x2="185" y2="46" stroke="#4A3B32" stroke-width="1.8" />
                             <path class="flame blown-out" id="flame-2" d="M 185 46 C 174 35, 180 18, 185 12 C 190 18, 196 35, 185 46 Z" fill="url(#flame-grad)" filter="url(#glow-filter)" />
                         </g>
                         
-                        <!-- Definitions for Gradients, Clips, and Filters -->
                         <defs>
                             <clipPath id="candle-clip-1">
                                 <rect x="110" y="55" width="10" height="45" rx="1.5" />
@@ -258,7 +256,7 @@
                 </div>
 
                 <div class="after-blow-message hidden" id="cake-success-msg">
-                    <p class="success-text title-serif">Yay! Happy Birthday! 🎉🌸</p>
+                    <p class="success-text title-serif" style="color: var(--primary);">At last, your wish is drifting away! 🏮✨</p>
                     <button id="next-to-letter" class="cute-btn">
                         <span>Read Your Letter</span>
                         <svg class="arrow-icon-right" viewBox="0 0 24 24" width="18" height="18">
@@ -281,27 +279,28 @@
                         <div class="envelope">
                             <div class="envelope-back"></div>
                             <div class="letter-paper">
-<div style="font-size: 7px; padding: 15px; color: #888; font-family: var(--font-serif); line-height: 1.5; opacity: 0.6; filter: blur(0.5px);">
-       <h3 style="font-size: 9px; margin-bottom: 6px; font-weight: normal;">Dearest Bestie,</h3>
-       <p style="margin-bottom: 4px;">I sat down to write this because, honestly, how do you put years of late-night giggles, shared secrets, and countless cups of tea into a single card?</p>
-       <p style="margin-bottom: 4px;">From the days when we had nothing but wild dreams to this exact moment, you have been my anchor, my constant cheerleader, and my absolute favorite human.</p>
-       <p style="margin-bottom: 4px;">You have this quiet magic about you that makes everything brighter. Whenever life felt a bit too loud or confusing, just talking to you made it all drift away.</p>
-       <p style="margin-bottom: 6px;">Today, I want to celebrate YOU. All the beauty, kindness, and light you bring to the world.</p>
-       <p style="text-align: right; font-style: italic;">With all my love,<br>Your Childhood Bestie 💕</p>
-    </div>
-</div>
+                                <div style="font-size: 7px; padding: 15px; color: #888; font-family: var(--font-serif); line-height: 1.5; opacity: 0.6; filter: blur(0.5px);">
+                                    <h3 style="font-size: 9px; margin-bottom: 6px; font-weight: normal;">Dearest Bestie,</h3>
+                                    <p style="margin-bottom: 4px;">I sat down to write this because, honestly, how do you put years of late-night giggles, shared secrets, and countless cups of tea into a single card?</p>
+                                    <p style="margin-bottom: 4px;">From the days when we had nothing but wild dreams to this exact moment, you have been my anchor, my constant cheerleader, and my absolute favorite human.</p>
+                                    <p style="margin-bottom: 4px;">You have this quiet magic about you that makes everything brighter. Whenever life felt a bit too loud or confusing, just talking to you made it all drift away.</p>
+                                    <p style="margin-bottom: 6px;">Today, I want to celebrate YOU. All the beauty, kindness, and light you bring to the world.</p>
+                                    <p style="text-align: right; font-style: italic;">With all my love,<br>Your Childhood Bestie 💕</p>
+                                </div>
+                            </div>
                             <div class="envelope-front"></div>
                             <div class="envelope-top" id="envelope-top"></div>
                             <div class="wax-seal" id="wax-seal" aria-label="Break the wax seal to open the letter">
-                                <div class="wax-design">🤍</div>
+                                <div class="wax-design" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 4px;">
+                                    <svg viewBox="0 0 100 100" width="34" height="34" style="filter: drop-shadow(0 1px 1px rgba(255,255,255,0.4));">
+                                        <path d="M50 12 L53 38 L77 20 L62 44 L87 50 L62 56 L77 80 L53 62 L50 88 L47 62 L23 80 L38 56 L13 50 L38 44 L23 20 L47 38 Z" fill="#D38C1B" />
+                                        <circle cx="50" cy="50" r="16" fill="#E2A028" />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-                <!-- (letter card moved to body level to avoid stacking context blur) -->
-
             </div>
         </section>
 
@@ -321,7 +320,7 @@
                         <span>◀ Prev</span>
                     </button>
                     <span class="page-indicator" style="font-family: var(--font-serif); font-size: 1rem; color: var(--text-main); min-width: 80px; text-align: center;">
-                        Page <span id="current-page-num" style="font-weight: bold; color: var(--primary-dark);">1</span> of 12
+                        Page <span id="current-page-num" style="font-weight: bold; color: var(--primary);">1</span> of 12
                     </span>
                     <button id="next-page-btn" class="cute-btn page-control" style="padding: 6px 14px; font-size: 0.9rem;">
                         <span>Next ▶</span>
@@ -343,9 +342,15 @@
         <section id="wish-section" class="scene" aria-labelledby="wish-title">
             <div class="scene-content flex-center-col">
                 <div class="wish-card glass-panel text-center" style="position: relative;">
-                    <div class="card-deco-top">✦ 🏺 ✦</div>
+                    <div class="card-deco-top">
+                        <!-- Corona Royal Sun Crest divider -->
+                        <svg viewBox="0 0 100 100" width="36" height="36" style="filter: drop-shadow(0 0 6px rgba(255,200,80,0.7)); margin: 0 auto 10px auto;">
+                            <path d="M50 12 L53 38 L77 20 L62 44 L87 50 L62 56 L77 80 L53 62 L50 88 L47 62 L23 80 L38 56 L13 50 L38 44 L23 20 L47 38 Z" fill="#FFC857" />
+                            <circle cx="50" cy="50" r="16" fill="#FFD700" stroke="#FFC857" stroke-width="1" />
+                        </svg>
+                    </div>
                     <h2 id="wish-title" class="title-serif">The Magical Wish Jar</h2>
-                    <p class="instruction-text">Type a beautiful wish for our friendship, lock it in the jar, and release a lantern into the cosmic sky.</p>
+                    <p class="instruction-text">Type a beautiful wish for our friendship, lock it in the jar, and release a lantern into the cosmic night sky.</p>
                     
                     <!-- Jar & Input Form -->
                     <div class="wish-form-wrapper">
@@ -385,7 +390,7 @@
 
                 <!-- Final ending page showing wishes, glowing ambient lantern counter -->
                 <div class="lantern-counter hidden" id="lantern-counter-pane">
-                    <p class="subtitle-handwritten">Your wishes are drifting into the stars...</p>
+                    <p class="subtitle-handwritten" style="color: var(--primary);">Your wishes are drifting into the sky...</p>
                     <p class="final-thank-you">Happy Birthday, my wonderful friend! Let's stay best friends forever. 🤍</p>
                     <button id="restart-btn" class="restart-link">Return to the beginning</button>
                 </div>
@@ -399,7 +404,21 @@
     <div id="letter-card" class="letter-card hidden">
         <div class="letter-lines"></div>
         <div class="letter-card-inner">
-            <h3 class="letter-header">Dearest Bestie,</h3>
+            <div class="letter-card-deco-top" style="display: flex; justify-content: center; margin-bottom: 4px; margin-top: -6px;">
+                <!-- Corona Royal Sun Crest Header for the Letter with Metallic 3D Gold Gradient -->
+                <svg viewBox="0 0 100 100" width="54" height="54" style="filter: drop-shadow(0 2px 8px rgba(255,179,71,0.65));">
+                    <defs>
+                        <linearGradient id="goldInviteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FFF5B8" />
+                            <stop offset="50%" stop-color="#E5C158" />
+                            <stop offset="100%" stop-color="#9C7410" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M50 12 L53 38 L77 20 L62 44 L87 50 L62 56 L77 80 L53 62 L50 88 L47 62 L23 80 L38 56 L13 50 L38 44 L23 20 L47 38 Z" fill="url(#goldInviteGrad)" />
+                    <circle cx="50" cy="50" r="16" fill="url(#goldInviteGrad)" stroke="#FFE890" stroke-width="1" />
+                </svg>
+            </div>
+            <h3 class="letter-header" style="text-align: center; margin-bottom: 12px;">Dearest Bestie,</h3>
             <p class="letter-body">
                 I sat down to write this because, honestly, how do you put years of late-night giggles, shared secrets, and countless cups of tea into a single card? From the days when we had nothing but wild dreams to this exact moment, you have been my anchor, my constant cheerleader, and my absolute favorite human.
             </p>
@@ -423,6 +442,6 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="script.js?v=25"></script>
+    <script src="script.js"></script>
 </body>
 </html>

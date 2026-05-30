@@ -255,29 +255,29 @@ class DreamParticle {
         this.rotation = Math.random() * Math.PI * 2;
         this.rotationSpeed = Math.random() * 0.008 - 0.004;
         
-        // 40% chance to be a subtle sakura petal, 60% chance to be dreamy bokeh light
+        // 40% chance to be a gold firefly sparkle, 60% chance to be dreamy bokeh light
         if (Math.random() < 0.40) {
-            this.type = 'sakura';
-            this.size = Math.random() * 6 + 4; // slightly varied petal size
-            this.speedY = Math.random() * 0.5 + 0.2; // drifting down gracefully
+            this.type = 'sakura'; // Keep name to avoid rewriting other code, represents golden firefly spark
+            this.size = Math.random() * 4 + 2; 
+            this.speedY = Math.random() * -0.4 - 0.2; // drifting upwards gracefully like magic dust!
             this.speedX = Math.random() * 0.4 - 0.2;
-            this.opacity = Math.random() * 0.5 + 0.2; 
+            this.opacity = Math.random() * 0.6 + 0.3; 
             
-            // Start above screen
-            this.y = -this.size - 20; 
+            // Start at bottom of screen
+            this.y = height + this.size + 20; 
         } else {
             this.type = 'bokeh';
-            this.size = Math.random() * 60 + 40; // large, soft out-of-focus orbs
-            this.speedY = (Math.random() - 0.5) * 0.25; // slow drift
-            this.speedX = (Math.random() - 0.5) * 0.25;
-            this.opacity = Math.random() * 0.15 + 0.05; // very faint
+            this.size = Math.random() * 50 + 30; // large, soft out-of-focus orbs
+            this.speedY = (Math.random() - 0.6) * 0.2; // slightly drifting upwards
+            this.speedX = (Math.random() - 0.5) * 0.2;
+            this.opacity = Math.random() * 0.12 + 0.04; // very faint
             
-            // Warm dreamy cinematic tones
+            // Royal golden & lavender midnight colors
             const colors = [
-                '255, 240, 245', // Lavender blush
-                '255, 228, 225', // Misty rose
-                '253, 245, 230', // Old lace
-                '230, 230, 250'  // Lavender
+                '255, 200, 87', // Golden amber
+                '255, 179, 71', // Warm gold
+                '139, 109, 178', // Radiant violet lavender
+                '230, 200, 250'  // Lavender blush
             ];
             this.colorRGB = colors[Math.floor(Math.random() * colors.length)];
             
@@ -321,12 +321,12 @@ class DreamParticle {
         
         if (this.type === 'sakura') {
             ctx.globalAlpha = this.opacity;
-            ctx.fillStyle = '#FFB6C1'; // Soft pink petal
+            ctx.fillStyle = '#FFC857'; // Golden amber spark
+            ctx.shadowColor = '#FFB01C';
+            ctx.shadowBlur = 8;
             ctx.beginPath();
-            // Subtle, elegant petal shape
-            ctx.moveTo(0, -this.size);
-            ctx.bezierCurveTo(this.size, -this.size, this.size, this.size * 0.5, 0, this.size);
-            ctx.bezierCurveTo(-this.size, this.size * 0.5, -this.size, -this.size, 0, -this.size);
+            // Tiny glowing circle firefly
+            ctx.arc(0, 0, this.size * 0.5, 0, Math.PI * 2);
             ctx.fill();
         } else if (this.type === 'bokeh') {
             // Elegant slow pulsing opacity
@@ -367,6 +367,72 @@ function animateCanvas() {
     requestAnimationFrame(animateCanvas);
 }
 requestAnimationFrame(animateCanvas);
+
+// ── Floating Lanterns System ──────────────────────────────────────────
+function spawnLantern(customX = null, customY = null, sizeMultiplier = 1.0) {
+    const lantern = document.createElement('div');
+    lantern.className = 'floating-lantern';
+    
+    const baseSize = Math.random() * 20 + 18; // 18px to 38px
+    const sizeWidth = baseSize * sizeMultiplier;
+    const sizeHeight = sizeWidth * 1.35;
+    
+    // Position
+    const startX = customX !== null ? customX : Math.random() * window.innerWidth;
+    const duration = customY !== null ? (Math.random() * 4 + 6) : (Math.random() * 8 + 12);
+    const sway = Math.random() * 100 - 50;
+    const rot = Math.random() * 30 - 15;
+    const scale = Math.random() * 0.45 + 0.45;
+    
+    lantern.style.width = `${sizeWidth}px`;
+    lantern.style.height = `${sizeHeight}px`;
+    
+    // Viewport-fixed positioning matches CSS modifications
+    lantern.style.position = 'fixed';
+    lantern.style.top = '0';
+    lantern.style.left = `${startX}px`;
+    
+    // Calculate CSS variables for starting and ending coordinates relative to top: 0
+    const yStart = customY !== null ? customY : (window.innerHeight + 60);
+    const yEnd = -150; // rise above the top of screen
+    
+    lantern.style.setProperty('--y-start', `${yStart}px`);
+    lantern.style.setProperty('--y-end', `${yEnd}px`);
+    lantern.style.setProperty('--duration', `${duration}s`);
+    lantern.style.setProperty('--delay', `0s`);
+    lantern.style.setProperty('--scale', scale);
+    lantern.style.setProperty('--sway', `${sway}px`);
+    lantern.style.setProperty('--rot', `${rot}deg`);
+    
+    // Corona sun emblem inside lantern
+    lantern.innerHTML = `
+        <svg viewBox="0 0 100 100" width="70%" height="70%" style="opacity: 0.75; margin-top: 15%;">
+            <path d="M50 15 L53 38 L75 25 L62 45 L85 50 L62 55 L75 75 L53 62 L50 85 L47 62 L25 75 L38 55 L15 50 L38 45 L25 25 L47 38 Z" fill="#D87818" />
+            <circle cx="50" cy="50" r="15" fill="#E28820" />
+        </svg>
+    `;
+    
+    document.body.appendChild(lantern);
+    setTimeout(() => lantern.remove(), duration * 1000);
+    return lantern;
+}
+
+function startLanternRain() {
+    // Spawn initial scattered batch starting mid-flight using negative delays
+    for (let i = 0; i < 15; i++) {
+        const duration = Math.random() * 8 + 12;
+        const delay = -Math.random() * duration; // Negative delay to start mid-flight!
+        const lantern = spawnLantern();
+        if (lantern) {
+            lantern.style.setProperty('--duration', `${duration}s`);
+            lantern.style.setProperty('--delay', `${delay}s`);
+        }
+    }
+    // Loop
+    setInterval(spawnLantern, 2200);
+}
+// Start rain immediately
+startLanternRain();
 
 /* ==========================================================================
    DREAMY SOUNDTRACK ENGINE (WEB AUDIO API SYNTH)
@@ -1014,8 +1080,8 @@ wishForm.addEventListener('submit', (e) => {
     // Clear input
     wishInput.value = '';
     
-    // Release a glowing lantern into the screen sky
-    createFloatingLantern();
+    // Release a massive glowing Hero Lantern + escort swarm!
+    releaseHeroLantern();
     
     if (!STATE.audioInitialized) initAudioSystem();
     
@@ -1027,49 +1093,49 @@ wishForm.addEventListener('submit', (e) => {
     counterPane.classList.remove('hidden');
 });
 
-// Floating sky lantern animation
-function createFloatingLantern() {
-    const lantern = document.createElement('div');
-    lantern.className = 'sky-lantern';
-    
-    // Lantern SVG drawing
-    lantern.innerHTML = `
-        <svg viewBox="0 0 40 60" width="40" height="60">
-            <!-- Lantern Body -->
-            <path d="M5 10 C5 0, 35 0, 35 10 C35 25, 30 50, 25 55 L15 55 C10 50, 5 25, 5 10 Z" fill="rgba(255, 179, 71, 0.85)" stroke="#C89D50" stroke-width="1" />
-            <!-- Inside Candle Glow -->
-            <circle cx="20" cy="40" r="8" fill="#FFF7C2" filter="blur(2px)" />
-            <path d="M20 40 L17 48 L23 48 Z" fill="#FFA500" />
-            <!-- Base Ring -->
-            <ellipse cx="20" cy="55" rx="5" ry="1.5" fill="#5C4A42" />
-        </svg>
-    `;
-    
-    // Position starting from below the bottom center
-    lantern.style.left = '50vw';
-    lantern.style.bottom = '-80px';
-    lantern.style.transform = 'translateX(-50%) scale(0.6)';
-    lantern.style.opacity = '1';
-    
-    document.body.appendChild(lantern);
-    
-    // Animate lantern floating upward and swaying sideways
-    const floatDuration = 5; // 5 seconds
-    
-    lantern.style.transition = `bottom ${floatDuration}s linear, left ${floatDuration}s ease-in-out, transform ${floatDuration}s ease, opacity ${floatDuration}s ease`;
-    
-    // Trigger transition next frame
-    requestAnimationFrame(() => {
-        lantern.style.bottom = '110vh';
-        lantern.style.left = `${Math.random() * 40 + 30}vw`; // drift sideways
-        lantern.style.transform = 'translateX(-50%) scale(1.2) rotate(10deg)';
-        lantern.style.opacity = '0';
-    });
-    
-    // Clean up DOM node
-    setTimeout(() => {
-        lantern.remove();
-    }, floatDuration * 1000);
+// Release Hero Lantern from the jar and spawn a massive movie-like escort lanterns swarm
+function releaseHeroLantern() {
+    const jarContainer = document.querySelector('.wish-jar-svg-container');
+    if (!jarContainer) return;
+    const rect = jarContainer.getBoundingClientRect();
+    const jarX = rect.left + rect.width / 2;
+    const jarY = rect.top + 30; // Spawns right above jar lid
+
+    // 1. Release the main big "Hero Lantern" from the jar
+    const hero = spawnLantern(jarX, jarY, 2.2); // Large scale 2.2
+    if (hero) {
+        // Massive glowing aura for the Hero lantern
+        hero.style.boxShadow = '0 0 55px rgba(255, 200, 87, 1), 0 0 25px rgba(255, 255, 255, 0.9), inset 0 0 15px rgba(255,255,255,0.6)';
+        hero.style.filter = 'drop-shadow(0 0 20px rgba(255, 200, 87, 0.95))';
+    }
+
+    // 2. Release 36 escort lanterns in a stunning movie-like staggered swarm from the bottom!
+    const totalSwarm = 36;
+    for (let i = 0; i < totalSwarm; i++) {
+        const delay = Math.random() * 7500; // Staggered beautifully over 7.5 seconds
+        setTimeout(() => {
+            // Random horizontal position across the full viewport width
+            const startX = Math.random() * window.innerWidth;
+            // High-fidelity sizing: larger range for 3D parallax layers (foreground/background)
+            const sizeMultiplier = Math.random() * 0.7 + 0.5; // 0.5 to 1.2 scale
+            const startY = window.innerHeight + 60; // Spawns just below screen
+            
+            const escort = spawnLantern(startX, startY, sizeMultiplier);
+            if (escort) {
+                // Larger/closer lanterns are brighter and float faster, smaller/further ones are softer and drift slower
+                const glowRadius = Math.random() * 30 + 15;
+                escort.style.boxShadow = `0 0 ${glowRadius}px rgba(255, 179, 71, 0.95), 0 0 10px rgba(255, 255, 255, 0.5), inset 0 0 8px rgba(255, 255, 255, 0.4)`;
+                
+                // Parallax depth: adjust duration based on size
+                const speedScale = sizeMultiplier; // bigger = faster
+                const duration = Math.random() * 4 + (14 - speedScale * 6); // 8s to 14s flight
+                escort.style.setProperty('--duration', `${duration}s`);
+                
+                // Soft golden glow drop shadow
+                escort.style.filter = `drop-shadow(0 0 ${sizeMultiplier * 10}px rgba(255, 165, 0, 0.8))`;
+            }
+        }, delay);
+    }
 }
 
 // Inject Lantern CSS dynamically
