@@ -127,13 +127,16 @@ html, body {
     z-index: 2;
 }
 
-/* Top lantern / star decoration */
+/* Top star decoration — matches the golden sun star in main content */
 .gate-deco {
-    font-size: 1.8rem;
-    margin-bottom: 18px;
-    letter-spacing: 8px;
-    filter: drop-shadow(0 0 10px rgba(255, 200, 87, 0.6));
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    letter-spacing: 0;
+    color: var(--primary);
+    filter: drop-shadow(0 0 14px rgba(255, 200, 87, 0.75))
+            drop-shadow(0 0 30px rgba(255, 184, 28, 0.4));
     animation: floatDeco 3.5s ease-in-out infinite;
+    line-height: 1;
 }
 
 @keyframes floatDeco {
