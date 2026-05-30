@@ -112,18 +112,24 @@
         });
     });
 
-    // ── Dev bypass: ?preview=true skips all gates ────────────────────────
-    const DEV_BYPASS = new URLSearchParams(window.location.search).get('preview') === 'true';
+    // ── Dev bypass: ?preview=true skips all gates | ?preview=passcode shows passcode gate ──
+    const previewParam = new URLSearchParams(window.location.search).get('preview');
+    const DEV_BYPASS = previewParam === 'true';
 
     // Run gate check on load
     if (DEV_BYPASS) {
         // Skip everything — hide both gates immediately
         countdownGate.classList.add('hidden');
         passcodeGate.classList.add('hidden');
+    } else if (previewParam === 'passcode') {
+        // Show only the passcode gate for preview
+        countdownGate.classList.add('hidden');
+        passcodeGate.classList.remove('hidden');
     } else {
         checkGate();
     }
     // Canvas sakura petals + bokeh (z-index: 1100) already drift over the gate naturally ✨
+
 })();
 
 /* ==========================================================================
