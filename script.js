@@ -1073,9 +1073,8 @@ wishForm.addEventListener('submit', (e) => {
     if (!wishText) return;
     
     // --- EMAILJS INTEGRATION ---
-    // Make sure to replace these placeholder strings with your actual EmailJS IDs!
-    emailjs.init("YOUR_PUBLIC_KEY"); 
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    emailjs.init("W2pas8rVP9po8uB0l");
+    emailjs.send("service_woedhuv", "template_mg0ed97", {
         message: wishText,
     }).then(
         () => console.log("Wish sent to your email successfully!"),
