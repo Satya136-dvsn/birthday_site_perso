@@ -640,71 +640,171 @@ html, body {
     margin-bottom: 18px;
 }
 
-/* Light Candles button */
+/* Light Candles button — Tangled Midnight Festival */
 .light-btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 40px;
-    background: rgba(255, 230, 150, 0.3); /* soft glowing yellow glass */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 2px solid rgba(255, 215, 0, 0.5); /* soft gold border */
-    color: var(--primary-dark);
+    gap: 12px;
+    padding: 16px 44px;
+    background: linear-gradient(135deg, rgba(255, 200, 87, 0.15), rgba(74, 36, 117, 0.5));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid var(--panel-border);
+    color: var(--primary);
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 700;
+    letter-spacing: 0.5px;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 8px 24px rgba(255, 200, 50, 0.25);
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease, background 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 0 20px rgba(255, 200, 87, 0.15),
+        0 8px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    animation: candleGlowIdle 3s ease-in-out infinite;
 }
-.light-btn:hover  { 
-    transform: translateY(-2px) scale(1.04); 
-    background: rgba(255, 230, 150, 0.5);
-    box-shadow: 0 12px 32px rgba(255, 200, 50, 0.4); 
+
+/* Shimmering gold sweep on hover */
+.light-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 200, 87, 0.15) 40%,
+        rgba(255, 200, 87, 0.3) 50%,
+        rgba(255, 200, 87, 0.15) 60%,
+        transparent 100%
+    );
+    transition: left 0.6s ease;
+    z-index: 0;
+}
+.light-btn:hover::before {
+    left: 100%;
+}
+
+.light-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.light-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    border-color: rgba(255, 200, 87, 0.7);
+    box-shadow:
+        0 0 35px rgba(255, 200, 87, 0.3),
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 .light-btn:active { transform: scale(0.96); }
 .light-btn.hidden { display: none; }
-.light-icon { font-size: 1.4rem; }
 
-/* Blow button */
+.light-icon {
+    font-size: 1.5rem;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    animation: flickerFlame 1.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 6px rgba(255, 200, 87, 0.8));
+}
+
+@keyframes candleGlowIdle {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 200, 87, 0.15), 0 8px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1); }
+    50%      { box-shadow: 0 0 28px rgba(255, 200, 87, 0.25), 0 8px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1); }
+}
+
+@keyframes flickerFlame {
+    0%   { transform: translateY(0) rotate(-2deg) scale(1); }
+    30%  { transform: translateY(-2px) rotate(1deg) scale(1.1); }
+    60%  { transform: translateY(-1px) rotate(-1deg) scale(1.05); }
+    100% { transform: translateY(-3px) rotate(2deg) scale(1.15); }
+}
+
+/* Blow button — Tangled Midnight Festival */
 .blow-btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 40px;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    color: var(--primary-dark);
+    gap: 12px;
+    padding: 16px 44px;
+    background: linear-gradient(135deg, rgba(74, 36, 117, 0.6), rgba(255, 200, 87, 0.2));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 200, 87, 0.5);
+    color: var(--primary);
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 700;
+    letter-spacing: 0.5px;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 8px 24px rgba(220, 174, 174, 0.25);
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease, background 0.25s ease;
-    animation: blowPulse 2.5s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 0 25px rgba(255, 200, 87, 0.2),
+        0 8px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    animation: blowPulseGold 2.5s ease-in-out infinite;
 }
-.blow-btn:hover  { 
-    transform: translateY(-2px) scale(1.04); 
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 12px 32px rgba(220, 174, 174, 0.35); 
+
+/* Shimmering sweep on blow button too */
+.blow-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 200, 87, 0.12) 40%,
+        rgba(255, 200, 87, 0.25) 50%,
+        rgba(255, 200, 87, 0.12) 60%,
+        transparent 100%
+    );
+    transition: left 0.6s ease;
+    z-index: 0;
+}
+.blow-btn:hover::before {
+    left: 100%;
+}
+
+.blow-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.blow-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    border-color: rgba(255, 200, 87, 0.8);
+    box-shadow:
+        0 0 40px rgba(255, 200, 87, 0.35),
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 .blow-btn:active { transform: scale(0.96); }
 .blow-btn.hidden { display: none; }
 
 .blow-icon {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     display: inline-block;
+    position: relative;
+    z-index: 1;
     animation: blowIconSway 1.2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 4px rgba(255, 200, 87, 0.6));
 }
 
-@keyframes blowPulse {
-    0%, 100% { box-shadow: 0 8px 24px rgba(220, 174, 174, 0.25), 0 0 0 0 rgba(255, 255, 255, 0.6); }
-    50%       { box-shadow: 0 8px 24px rgba(220, 174, 174, 0.25), 0 0 0 12px rgba(255, 255, 255, 0); }
+@keyframes blowPulseGold {
+    0%, 100% { box-shadow: 0 0 25px rgba(255, 200, 87, 0.2), 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(255, 200, 87, 0.4); }
+    50%      { box-shadow: 0 0 25px rgba(255, 200, 87, 0.2), 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 0 14px rgba(255, 200, 87, 0); }
 }
 @keyframes blowIconSway {
     from { transform: translateX(0); }
