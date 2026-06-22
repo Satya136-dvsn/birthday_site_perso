@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=2.5">
+    <link rel="stylesheet" href="styles.css?v=2.6">
 </head>
 <body>
     <!-- Background Canvas for Dreamy Stars and Floating Lanterns -->
@@ -412,6 +412,13 @@
     <!-- Letter backdrop + card — must be direct body children (outside all transformed sections) -->
     <div id="letter-backdrop" class="letter-backdrop"></div>
     <div id="letter-card" class="letter-card hidden">
+        <!-- Top Scroll Roll Bar -->
+        <div class="scroll-roll scroll-roll-top">
+            <div class="scroll-knob scroll-knob-left"></div>
+            <div class="scroll-bar"></div>
+            <div class="scroll-knob scroll-knob-right"></div>
+        </div>
+
         <div class="letter-lines"></div>
         <div class="letter-card-inner">
             <div class="letter-card-deco-top" style="display: flex; justify-content: center; margin-bottom: 4px; margin-top: -6px;">
@@ -456,6 +463,14 @@
             <p class="letter-body" style="font-style: italic; opacity: 0.9;">
                 Yekuva chepanaa, parledu leyy nuvee kadaa nekuu kakapoteyy inkaa evarikii.
             </p>
+            <!-- Wax Seal Stamp -->
+            <div class="wax-seal-stamp">
+                <svg viewBox="0 0 80 80" width="56" height="56">
+                    <circle cx="40" cy="40" r="36" fill="#8B1A1A" stroke="#A52A2A" stroke-width="2"/>
+                    <circle cx="40" cy="40" r="28" fill="none" stroke="#C0392B" stroke-width="1" opacity="0.5"/>
+                    <text x="40" y="46" text-anchor="middle" font-family="'Playfair Display', serif" font-size="18" font-weight="700" fill="#E8C39E" opacity="0.9">♥</text>
+                </svg>
+            </div>
             <p class="letter-signature">With all my love,<br><span class="sig-name">Your Bestie 💕</span></p>
         </div>
         <div class="letter-next-row">
@@ -465,6 +480,13 @@
                     <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                 </svg>
             </button>
+        </div>
+
+        <!-- Bottom Scroll Roll Bar -->
+        <div class="scroll-roll scroll-roll-bottom">
+            <div class="scroll-knob scroll-knob-left"></div>
+            <div class="scroll-bar"></div>
+            <div class="scroll-knob scroll-knob-right"></div>
         </div>
     </div>
 

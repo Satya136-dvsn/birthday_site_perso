@@ -2719,48 +2719,59 @@ html, body {
     background: rgba(16, 6, 30, 0.94) !important;
 }
 
-/* Gold/Charcoal High-Contrast Letter Paper - Styled as a Royal Ancient Parchment Invitation */
+/* Gold/Charcoal High-Contrast Letter Paper - Styled as a Royal Ancient Scroll */
 .letter-card {
-    /* Multi-layered background: realistic, organic weathered parchment paper texture overlay + rich golden sepia radial gradient */
+    /* Multi-layered background: noise texture + aged parchment gradient */
     background-image: 
-        url("data:image/svg+xml,%3Csvg%20viewBox='0%200%20200%20200'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter%20id='noiseFilter'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.6'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23noiseFilter)'%20opacity='0.035'/%3E%3C/svg%3E"), 
-        radial-gradient(circle at center, #FFFDF7 0%, #FAF0D4 60%, #E6CE92 100%) !important;
-    border: 4px double #E5C158 !important; /* Double-line royal gold border */
-    border-left: 8px solid #FFC857 !important; /* Thick glowing gold royal marker edge */
+        url("data:image/svg+xml,%3Csvg%20viewBox='0%200%20200%20200'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter%20id='noiseFilter'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.65'%20numOctaves='4'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23noiseFilter)'%20opacity='0.05'/%3E%3C/svg%3E"), 
+        radial-gradient(ellipse at center, #FDF8E8 0%, #F5E6C8 40%, #E8D5A3 75%, #D4BC7A 100%) !important;
+    border: none !important;
+    border-left: none !important;
+    border-radius: 4px !important; /* Nearly flat — scrolls aren't rounded */
     box-shadow: 
-        0 15px 45px rgba(0, 0, 0, 0.65), 
-        0 0 35px rgba(255, 200, 87, 0.35),
-        inset 0 0 0 3px #4A2475, /* Royal purple inner lining perfectly matches envelope cover! */
-        inset 0 0 45px rgba(106, 68, 25, 0.32) !important; /* Rich weathered brown/sepia burnished vignette edges */
-    border-radius: 24px 14px 28px 18px / 18px 28px 14px 24px !important; /* Organic, slightly irregular handmade paper shape! */
+        /* Curled scroll shadow — thicker on sides to simulate roll curve */
+        8px 0 20px -6px rgba(80, 50, 20, 0.4),
+        -8px 0 20px -6px rgba(80, 50, 20, 0.4),
+        0 6px 25px rgba(0, 0, 0, 0.5),
+        /* Inner burned vignette — aged parchment feel */
+        inset 0 0 60px rgba(120, 80, 30, 0.25),
+        inset 0 0 120px rgba(80, 50, 20, 0.1) !important;
 }
+
+/* Remove the old filigree corner brackets — scrolls don't have rounded corner deco */
 .letter-card::after {
     content: "";
     position: absolute;
-    inset: 12px; /* Sits just inside the borders */
-    border: 1px solid rgba(255, 200, 87, 0.25);
-    border-radius: 16px;
+    inset: 0;
     pointer-events: none;
     z-index: 10;
-    /* Draws gorgeous, ornate filigree gold corner brackets with beads (fully percent-encoded for Chrome/mobile support) */
-    background-image: 
-        url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cpath%20d='M%205%2020%20C%205%2012,%2012%205,%2020%205%20L%2012%205%20C%208%205,%205%208,%205%2012%20Z%20M%2095%2020%20C%2095%2012,%2088%205,%2080%205%20L%2088%205%20C%2092%205,%2095%208,%2095%2012%20Z%20M%205%2080%20C%205%2088,%2012%2095,%2020%2095%20L%2012%2095%20C%208%2095,%205%2092,%205%2088%20Z%20M%2095%2080%20C%2095%2088,%2088%2095,%2080%2095%20L%2088%2095%20C%2092%2095,%2095%2092,%2095%2088%20Z'%20fill='%23FFC857'/%3E%3Ccircle%20cx='10'%20cy='10'%20r='2.5'%20fill='%23FFC857'/%3E%3Ccircle%20cx='90'%20cy='10'%20r='2.5'%20fill='%23FFC857'/%3E%3Ccircle%20cx='10'%20cy='90'%20r='2.5'%20fill='%23FFC857'/%3E%3Ccircle%20cx='90'%20cy='90'%20r='2.5'%20fill='%23FFC857'/%3E%3C/svg%3E");
-    background-position: top left, top right, bottom left, bottom right;
-    background-size: 32px 32px;
-    background-repeat: no-repeat;
+    border: none;
+    border-radius: 0;
+    background-image: none;
+    /* Instead: subtle aged edge darkening */
+    background: linear-gradient(
+        to right,
+        rgba(120, 80, 30, 0.15) 0%,
+        transparent 8%,
+        transparent 92%,
+        rgba(120, 80, 30, 0.15) 100%
+    );
 }
+
+/* Royal Sun watermark — stays as a faint background seal */
 .letter-card-inner::before {
     content: "";
     position: absolute;
     inset: 0;
-    /* Draws the center Corona Royal Sun watermark (fully percent-encoded) */
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%20opacity='0.04'%3E%3Cpath%20d='M50%2012%20L53%2038%20L77%2020%20L62%2044%20L87%2050%20L62%2056%20L77%2080%20L53%2062%20L50%2088%20L47%2062%20L23%2080%20L38%2056%20L13%2050%20L38%2044%20L23%2020%20L47%2038%20Z'%20fill='%23FFC857'/%3E%3Ccircle%20cx='50'%20cy='50'%20r='16'%20fill='%23FFD700'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%20opacity='0.035'%3E%3Cpath%20d='M50%2012%20L53%2038%20L77%2020%20L62%2044%20L87%2050%20L62%2056%20L77%2080%20L53%2062%20L50%2088%20L47%2062%20L23%2080%20L38%2056%20L13%2050%20L38%2044%20L23%2020%20L47%2038%20Z'%20fill='%23C4A24B'/%3E%3Ccircle%20cx='50'%20cy='50'%20r='16'%20fill='%23C4A24B'/%3E%3C/svg%3E");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 260px;
+    background-size: 220px;
     pointer-events: none;
     z-index: -1;
 }
+
+/* Ruled lines — old quill-ruled parchment */
 .letter-lines {
     position: absolute;
     inset: 0;
@@ -2768,25 +2779,110 @@ html, body {
     background-image: repeating-linear-gradient(
         to bottom,
         transparent 0px,
-        transparent 34px,
-        rgba(212, 175, 55, 0.12) 34px, /* Soft sepia-gold guidelines for handwriting */
-        rgba(212, 175, 55, 0.12) 35px
+        transparent 32px,
+        rgba(160, 120, 60, 0.1) 32px,
+        rgba(160, 120, 60, 0.1) 33px
     ) !important;
     background-position: 0 56px;
     z-index: 0;
 }
+
+/* ── Scroll Roll Bars (wooden dowels) ── */
+.scroll-roll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 20;
+    flex: 0 0 auto;
+    padding: 0 4px;
+}
+
+.scroll-bar {
+    flex: 1;
+    height: 18px;
+    background: linear-gradient(
+        to bottom,
+        #D4A24B 0%,
+        #C4922B 15%,
+        #A87728 35%,
+        #8B6220 50%,
+        #A87728 65%,
+        #C4922B 85%,
+        #D4A24B 100%
+    );
+    border-radius: 3px;
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.4),
+        inset 0 2px 3px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-knob {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #F5DFA0, #C49A30 50%, #8B6914 100%);
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4),
+        0 0 8px rgba(196, 154, 48, 0.3);
+    flex: 0 0 auto;
+    position: relative;
+}
+.scroll-knob::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #FFF5C0, #D4A24B);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.scroll-roll-top {
+    margin-bottom: -2px;
+}
+.scroll-roll-bottom {
+    margin-top: -2px;
+}
+
+/* ── Wax Seal Stamp ── */
+.wax-seal-stamp {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0 4px;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+}
+.wax-seal-stamp svg {
+    animation: sealGlow 3s ease-in-out infinite alternate;
+}
+@keyframes sealGlow {
+    0%   { filter: drop-shadow(0 0 4px rgba(139, 26, 26, 0.3)); }
+    100% { filter: drop-shadow(0 0 10px rgba(139, 26, 26, 0.5)); }
+}
+
+/* ── Letter text colors for the aged parchment ── */
 .letter-header {
-    color: #A36A00 !important; /* Burnished ancient gold title */
+    color: #6B3A00 !important; /* Dark aged-ink brown */
     font-size: 1.85rem !important;
-    text-shadow: 0 1px 1px rgba(255,255,255,0.7);
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5);
 }
 .letter-body {
-    color: #3C2E24 !important; /* Ink-dark warm charcoal brown for perfect readability */
-    font-size: 1.15rem !important;
-    line-height: 1.6 !important;
+    color: #3C2815 !important; /* Dark sepia ink — like real quill writing */
+    font-size: 1.1rem !important;
+    line-height: 1.65 !important;
 }
 .letter-signature {
-    color: #A36A00 !important; /* Burnished gold signature label */
+    color: #6B3A00 !important; /* Matches header */
+}
+
+/* ── Backdrop — darker for scroll drama ── */
+.letter-backdrop {
+    background: rgba(20, 12, 35, 0.92) !important;
 }
 
 /* Polaroid Scrapbook Classic Paper Overrides */
