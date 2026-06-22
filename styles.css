@@ -1049,7 +1049,27 @@ html, body {
     z-index: 1;
     padding: 22px 28px 16px 32px;
     flex: 1 1 auto;       /* fills height between top edge and button row */
-    overflow: hidden;     /* NO scroll — content sized to fit */
+    overflow-y: auto;     /* Smooth vertical scrolling for long letters */
+    scrollbar-width: thin;
+    scrollbar-color: #E5C158 transparent;
+}
+
+/* Custom Gold/Parchment Scrollbar for Webkit (Chrome/Safari/Edge) */
+.letter-card-inner::-webkit-scrollbar {
+    width: 6px;
+}
+.letter-card-inner::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+    margin: 10px 0;
+}
+.letter-card-inner::-webkit-scrollbar-thumb {
+    background: #E5C158;
+    border-radius: 4px;
+    box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.4);
+}
+.letter-card-inner::-webkit-scrollbar-thumb:hover {
+    background: #FFC857;
 }
 
 /* Next button row — pinned to bottom, always visible */
