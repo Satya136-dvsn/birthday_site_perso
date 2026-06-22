@@ -734,7 +734,7 @@ lightBtn.addEventListener('click', () => {
         lightBtn.classList.add('hidden');
         blowBtn.classList.remove('hidden');
         document.getElementById('cake-instruction').textContent =
-            'Make a wish in your heart… then blow out the candles! 💨';
+            'Close your eyes… now blow out the candles! ✨';
     }, flames.length * 160 + 500);
 });
 
@@ -1184,7 +1184,7 @@ restartBtn.addEventListener('click', () => {
     const cakeInstruction = document.getElementById('cake-instruction');
     cakeInstruction.classList.remove('hidden');
     cakeInstruction.textContent =
-        'First light the candles, make a wish, then blow them all out!';
+        'First light the candles, close your eyes, then blow them all out!';
 
 
 
