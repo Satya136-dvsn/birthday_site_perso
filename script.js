@@ -668,6 +668,7 @@ document.getElementById('next-to-letter').addEventListener('click', () => {
 
 document.getElementById('next-to-gallery').addEventListener('click', () => {
     letterCard.classList.remove('visible');
+    letterCard.classList.remove('unrolled');
     letterCard.classList.add('hidden');
     letterBackdrop.classList.remove('visible');
     currentScrapbookPage = 1;
@@ -964,6 +965,10 @@ waxSeal.addEventListener('click', (e) => {
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 letterCard.classList.add('visible');
+                // Enable scrolling only after the scroll finishes unrolling (0.9s duration)
+                setTimeout(() => {
+                    letterCard.classList.add('unrolled');
+                }, 900);
             });
         });
     }, 1100);
@@ -1203,6 +1208,7 @@ restartBtn.addEventListener('click', () => {
     envelopeWrapper.classList.remove('open');
     envelopeStage.classList.remove('fade-out');
     letterCard.classList.remove('visible');
+    letterCard.classList.remove('unrolled');
     letterCard.classList.add('hidden');
     letterBackdrop.classList.remove('visible');
 
