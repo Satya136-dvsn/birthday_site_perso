@@ -194,7 +194,7 @@ const DIARY_DATA = [
         date: "Back when it all began",
         desc: "Young, carefree, and absolutely unbothered. This photo feels like the beginning of everything — the laughs, the memories, the bond. Some things started small and grew into something forever. 🌱",
         image: "scrapbook/IMG-20211126-WA0011.jpg",
-        position: "center 63%"
+        fit: "contain"
     },
     {
         title: "A quick snap in time 📸",
@@ -1008,6 +1008,18 @@ function renderScrapbookCard(pageIndex) {
     ];
     const rotationClass = rotationClasses[(pageIndex - 1) % rotationClasses.length];
 
+    let imgHtml = '';
+    if (entry.fit === 'contain') {
+        imgHtml = `
+            <img class="polaroid-img-blur" src="${entry.image}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(12px) brightness(0.85); opacity: 0.55; pointer-events: none;" draggable="false">
+            <img class="polaroid-img" src="${entry.image}" alt="${entry.title}" style="position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; filter: sepia(0.05) contrast(0.98);" draggable="false">
+        `;
+    } else {
+        imgHtml = `
+            <img class="polaroid-img" src="${entry.image}" alt="${entry.title}" style="object-position: ${entry.position || 'center'}; width: 100%; height: 100%; object-fit: cover; filter: sepia(0.1) contrast(0.95); transition: transform 0.5s ease;" draggable="false">
+        `;
+    }
+
     cardContainer.innerHTML = `
         <div class="polaroid-wrapper-3d ${rotationClass}">
             <!-- Tape Decals -->
@@ -1017,8 +1029,8 @@ function renderScrapbookCard(pageIndex) {
             <div class="polaroid-card-3d" id="polaroid-card">
                 <!-- Front Side (Photo) -->
                     <div class="polaroid-front">
-                        <div class="polaroid-img-wrapper">
-                            <img class="polaroid-img" src="${entry.image}" alt="${entry.title}" style="object-position: ${entry.position || 'center'};" draggable="false">
+                        <div class="polaroid-img-wrapper" style="position: relative; background: #0c0517;">
+                            ${imgHtml}
                         </div>
                         <div class="polaroid-caption">${entry.title}</div>
                         <div class="flip-hint">✨ Click card to flip</div>
