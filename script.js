@@ -194,7 +194,7 @@ const DIARY_DATA = [
         date: "Back when it all began",
         desc: "Young, carefree, and absolutely unbothered. This photo feels like the beginning of everything — the laughs, the memories, the bond. Some things started small and grew into something forever. 🌱",
         image: "scrapbook/IMG-20211126-WA0011.jpg",
-        position: "center 30%"
+        position: "center 55%"
     },
     {
         title: "A quick snap in time 📸",
@@ -222,7 +222,7 @@ const DIARY_DATA = [
         date: "Together as always",
         desc: "Look at us. Just look. We're honestly too cute sometimes and I refuse to be humble about it. This is what friendship looks like — warm, real, and a little bit silly. 💖",
         image: "scrapbook/Snapchat-246365356.jpg",
-        position: "center 15%"
+        position: "center 90%"
     },
     {
         title: "A grand day out 🎊",
