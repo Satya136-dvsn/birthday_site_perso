@@ -155,76 +155,76 @@ const SCENES = [
 // Polaroid Diary Data
 const DIARY_DATA = [
     {
-        title: "Where it all began...",
-        date: "June 12, 2012",
-        desc: "The playground where we first met. We were both so shy, but we ended up spending hours on these wooden swings arguing about who could go higher. Who knew that swing set would be the start of a lifetime of laughter? 🌅",
-        image: "assets/memory_swings.png"
+        title: "Peace signs & pure vibes ✌️",
+        date: "A day we were just us",
+        desc: "Two peace signs, one goofy angle, and a whole lot of love. Honestly this photo says it all — we never need a reason to be absolutely ridiculous together. This is one of my favourites. 🤍",
+        image: "scrapbook/Snapchat-574825176.jpg"
     },
     {
-        title: "Chasing shooting stars",
-        date: "August 18, 2016",
-        desc: "Lying on a blanket on the grassy hill, counting shooting stars. We talked about what we wanted to be when we grew up, making a silent pact that no matter where life took us, we'd always stargaze together. 💫",
-        image: "assets/memory_stargazing.png"
+        title: "Traditional & timeless 🌸",
+        date: "A very special occasion",
+        desc: "You in that stunning red lehenga, looking like you walked straight out of a dream. And look at me trying to keep up! This day was beautiful in every way — and so were you. 💃",
+        image: "scrapbook/IMG_0305.JPG"
     },
     {
-        title: "Cake & endless gossips",
-        date: "September 03, 2021",
-        desc: "Sharing giant slices of strawberry cake at that cozy little corner cafe. You always eat the cherries first, and I always steal the frosting when you aren't looking. Simple moments that feel like home. 🍰",
-        image: "assets/memory_cafe.png"
+        title: "Mirror selfie besties 🖤",
+        date: "Just a random perfect day",
+        desc: "Black fits and that orange phone case — this mirror selfie is peak us. You always make me smile even when I'm pretending to be cool. Batman approved. 🦇✨",
+        image: "scrapbook/IMG_0591.jpg"
     },
     {
-        title: "Secrets locked forever",
-        date: "October 14, 2024",
-        desc: "Our old notebook of promises, doodles, and silly inside jokes that make zero sense to anyone else. It's safe to say our secrets are locked forever in our memory vaults. 🔐",
-        image: "assets/memory_notebook.png"
+        title: "Night out in style 🌙",
+        date: "A festive evening together",
+        desc: "You in a saree, me in green — standing under fairy lights at night, looking like we actually had our life together. Spoiler: we were just winging it as usual, but we looked amazing doing it. ✨",
+        image: "scrapbook/IMG-20260308-WA0007.jpg"
     },
     {
-        title: "Picnic on the hill",
-        date: "May 08, 2025",
-        desc: "Spent a sunny afternoon on the hillside picnic. Surrounded by wild daisies and sweet strawberries, we laughed so hard our ribs hurt just telling the silliest stories. 🌸",
-        image: "assets/memory_picnic.png"
+        title: "Us against the world 🌟",
+        date: "That warm evening out",
+        desc: "Side by side, smiling like nothing in the world could touch us. This photo reminds me that no matter what, you're always going to be one of the most important people in my life. 💛",
+        image: "scrapbook/IMG-20260308-WA0006.jpg"
     },
     {
-        title: "Dancing in the rain",
-        date: "July 22, 2025",
-        desc: "Got completely caught in an unexpected summer downpour without an umbrella! Instead of running, we just danced under the warm street lamps, soaked to the bone and completely happy. ☔",
-        image: "assets/memory_rain.png"
+        title: "Childhood vibes forever 🧡",
+        date: "Back when it all began",
+        desc: "Young, carefree, and absolutely unbothered. This photo feels like the beginning of everything — the laughs, the memories, the bond. Some things started small and grew into something forever. 🌱",
+        image: "scrapbook/IMG-20211126-WA0011.jpg"
     },
     {
-        title: "Golden hour forever",
-        date: "August 30, 2025",
-        desc: "Sitting quietly on the warm sand watching the beach sunset. As the sky turned a million shades of pink and orange, we promised to always chase these golden moments together. 🌊",
-        image: "assets/memory_beach.png"
+        title: "A quick snap in time 📸",
+        date: "One of our casual days",
+        desc: "Sometimes the best photos are the ones taken without thinking. No poses, no planning — just a moment, a click, and a memory saved forever. This is one of those. 💕",
+        image: "scrapbook/IMG-20241120-WA0011.jpg"
     },
     {
-        title: "Our favourite corner",
-        date: "November 11, 2025",
-        desc: "Tucked away in the quiet library corner, sharing one book under fairy lights. We whispered so many jokes and got shushed by the librarian at least three times! 📚",
-        image: "assets/memory_library.png"
+        title: "Snapchat silliness 😄",
+        date: "When we were in a mood",
+        desc: "Whatever mood this was, I love it. Snapchat knew what it was doing bringing us together like this. Pure energy, no filter needed (okay maybe one filter). 😂🤍",
+        image: "scrapbook/Snapchat-1220451797.jpg"
     },
     {
-        title: "Cozy campfire nights",
-        date: "December 24, 2025",
-        desc: "Gathered around a crackling campfire, roasting marshmallows and wrapping ourselves in thick blankets. Singing acoustic songs off-key and talking about the future under a canopy of sparks. 🔥",
-        image: "assets/memory_campfire.png"
+        title: "Candid & carefree 🌷",
+        date: "A moment caught off guard",
+        desc: "The best moments are the ones you don't see coming. This was one of those. Caught mid-laugh, mid-life, mid-friendship — and it's perfect. 🌸",
+        image: "scrapbook/Snapchat-1942165462.jpg"
     },
     {
-        title: "First winter snow",
-        date: "January 15, 2026",
-        desc: "Waking up to a world completely covered in pristine white snow. We ran outside like kids, built a tiny snowman, and then warmed up with extra large mugs of hot chocolate topped with marshmallows. ❄️",
-        image: "assets/memory_snow.png"
+        title: "Squad goals 🌼",
+        date: "Together as always",
+        desc: "Look at us. Just look. We're honestly too cute sometimes and I refuse to be humble about it. This is what friendship looks like — warm, real, and a little bit silly. 💖",
+        image: "scrapbook/Snapchat-246365356.jpg"
     },
     {
-        title: "Rooftop stargazing",
-        date: "March 21, 2026",
-        desc: "Sneaking up to the rooftop after midnight with a box of hot pizza. The city lights stretched out below us like a second galaxy, and we sat on the edge whispering our hopes for the years ahead. 🍕",
-        image: "assets/memory_rooftop.png"
+        title: "A grand day out 🎊",
+        date: "Dressed up & showing up",
+        desc: "Big smiles, dressed to impress, and absolutely thriving. Whatever this occasion was, we clearly showed up for it — and for each other. That's what we always do. 🥂✨",
+        image: "scrapbook/DSC_0050.JPG"
     },
     {
-        title: "Sunset on the hill",
-        date: "April 05, 2026",
-        desc: "Running up the grassy hill just in time to catch the sun dipping below the horizon. As the orange sky faded into a warm purple twilight, we agreed that some of the best moments are the simplest ones. 🌅",
-        image: "assets/memory_sunset_hill.png"
+        title: "Portrait of us 🖼️",
+        date: "A memory worth framing",
+        desc: "This one belongs in a frame. Honestly. Two people who somehow found each other and decided to stick around — and I couldn't be more grateful for that. Happy Birthday, Alli. 💕",
+        image: "scrapbook/DSC_1542.JPG"
     }
 ];
 
