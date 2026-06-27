@@ -112,9 +112,9 @@
         });
     });
 
-    // ── Dev bypass: ?preview=true skips all gates | ?preview=passcode shows passcode gate ──
+    // ── Dev bypass: forced to true during testing stage ──
     const previewParam = new URLSearchParams(window.location.search).get('preview');
-    const DEV_BYPASS = previewParam === 'true';
+    const DEV_BYPASS = true; // Force-enabled for testing (removes timer and passcode)
 
     // Run gate check on load
     if (DEV_BYPASS) {
