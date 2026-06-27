@@ -194,7 +194,7 @@ const DIARY_DATA = [
         date: "Back when it all began",
         desc: "Young, carefree, and absolutely unbothered. This photo feels like the beginning of everything — the laughs, the memories, the bond. Some things started small and grew into something forever. 🌱",
         image: "scrapbook/IMG-20211126-WA0011.jpg",
-        position: "center 60%"
+        position: "center 63%"
     },
     {
         title: "A quick snap in time 📸",
