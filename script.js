@@ -158,73 +158,85 @@ const DIARY_DATA = [
         title: "Peace signs & pure vibes ✌️",
         date: "A day we were just us",
         desc: "Two peace signs, one goofy angle, and a whole lot of love. Honestly this photo says it all — we never need a reason to be absolutely ridiculous together. This is one of my favourites. 🤍",
-        image: "scrapbook/Snapchat-574825176.jpg"
+        image: "scrapbook/Snapchat-574825176.jpg",
+        position: "center 15%"
     },
     {
         title: "Traditional & timeless 🌸",
         date: "A very special occasion",
         desc: "You in that stunning red lehenga, looking like you walked straight out of a dream. And look at me trying to keep up! This day was beautiful in every way — and so were you. 💃",
-        image: "scrapbook/IMG_0305.JPG"
+        image: "scrapbook/IMG_0305.JPG",
+        position: "center 5%"
     },
     {
         title: "Mirror selfie besties 🖤",
         date: "Just a random perfect day",
         desc: "Black fits and that orange phone case — this mirror selfie is peak us. You always make me smile even when I'm pretending to be cool. Batman approved. 🦇✨",
-        image: "scrapbook/IMG_0591.jpg"
+        image: "scrapbook/IMG_0591.jpg",
+        position: "center 10%"
     },
     {
         title: "Night out in style 🌙",
         date: "A festive evening together",
         desc: "You in a saree, me in green — standing under fairy lights at night, looking like we actually had our life together. Spoiler: we were just winging it as usual, but we looked amazing doing it. ✨",
-        image: "scrapbook/IMG-20260308-WA0007.jpg"
+        image: "scrapbook/IMG-20260308-WA0007.jpg",
+        position: "center 15%"
     },
     {
-        title: "Us against the world 🌟",
-        date: "That warm evening out",
-        desc: "Side by side, smiling like nothing in the world could touch us. This photo reminds me that no matter what, you're always going to be one of the most important people in my life. 💛",
-        image: "scrapbook/IMG-20260308-WA0006.jpg"
+        title: "Close-up smiles & glasses 👓",
+        date: "A bright sunny day out",
+        desc: "Double glasses, double smiles, and a very good hair day. We might look like we're about to write a research paper together, but really we were just taking cute selfies. ☀️💕",
+        image: "scrapbook/IMG-20250106-WA0019.jpg",
+        position: "center 20%"
     },
     {
         title: "Childhood vibes forever 🧡",
         date: "Back when it all began",
         desc: "Young, carefree, and absolutely unbothered. This photo feels like the beginning of everything — the laughs, the memories, the bond. Some things started small and grew into something forever. 🌱",
-        image: "scrapbook/IMG-20211126-WA0011.jpg"
+        image: "scrapbook/IMG-20211126-WA0011.jpg",
+        position: "center 30%"
     },
     {
         title: "A quick snap in time 📸",
         date: "One of our casual days",
         desc: "Sometimes the best photos are the ones taken without thinking. No poses, no planning — just a moment, a click, and a memory saved forever. This is one of those. 💕",
-        image: "scrapbook/IMG-20241120-WA0011.jpg"
+        image: "scrapbook/IMG-20241120-WA0011.jpg",
+        position: "center center"
     },
     {
         title: "Snapchat silliness 😄",
         date: "When we were in a mood",
         desc: "Whatever mood this was, I love it. Snapchat knew what it was doing bringing us together like this. Pure energy, no filter needed (okay maybe one filter). 😂🤍",
-        image: "scrapbook/Snapchat-1220451797.jpg"
+        image: "scrapbook/Snapchat-1220451797.jpg",
+        position: "center 15%"
     },
     {
         title: "Candid & carefree 🌷",
         date: "A moment caught off guard",
         desc: "The best moments are the ones you don't see coming. This was one of those. Caught mid-laugh, mid-life, mid-friendship — and it's perfect. 🌸",
-        image: "scrapbook/Snapchat-1942165462.jpg"
+        image: "scrapbook/Snapchat-1942165462.jpg",
+        position: "center 15%"
     },
     {
         title: "Squad goals 🌼",
         date: "Together as always",
         desc: "Look at us. Just look. We're honestly too cute sometimes and I refuse to be humble about it. This is what friendship looks like — warm, real, and a little bit silly. 💖",
-        image: "scrapbook/Snapchat-246365356.jpg"
+        image: "scrapbook/Snapchat-246365356.jpg",
+        position: "center 15%"
     },
     {
         title: "A grand day out 🎊",
         date: "Dressed up & showing up",
         desc: "Big smiles, dressed to impress, and absolutely thriving. Whatever this occasion was, we clearly showed up for it — and for each other. That's what we always do. 🥂✨",
-        image: "scrapbook/DSC_0050.JPG"
+        image: "scrapbook/DSC_0050.JPG",
+        position: "center 20%"
     },
     {
         title: "Portrait of us 🖼️",
         date: "A memory worth framing",
         desc: "This one belongs in a frame. Honestly. Two people who somehow found each other and decided to stick around — and I couldn't be more grateful for that. Happy Birthday, Alli. 💕",
-        image: "scrapbook/DSC_1542.JPG"
+        image: "scrapbook/DSC_1542.JPG",
+        position: "center center"
     }
 ];
 
@@ -1006,7 +1018,7 @@ function renderScrapbookCard(pageIndex) {
                 <!-- Front Side (Photo) -->
                     <div class="polaroid-front">
                         <div class="polaroid-img-wrapper">
-                            <img class="polaroid-img" src="${entry.image}" alt="${entry.title}" draggable="false">
+                            <img class="polaroid-img" src="${entry.image}" alt="${entry.title}" style="object-position: ${entry.position || 'center'};" draggable="false">
                         </div>
                         <div class="polaroid-caption">${entry.title}</div>
                         <div class="flip-hint">✨ Click card to flip</div>
