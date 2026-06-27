@@ -282,41 +282,47 @@
             <div class="scene-content flex-center-col" style="gap:0; width:100%;">
                 <h2 id="letter-title" class="sr-only">Your Handwritten Letter</h2>
 
-                <!-- Stage 1: Scroll Tube trigger -->
+                <!-- Stage 1: Rolled Scroll trigger -->
                 <div id="envelope-stage">
-                    <p class="instruction-text text-center" style="margin-bottom:20px;">✨ Tap the seal to open your royal scroll</p>
-                    <div class="scroll-tube-wrapper" id="envelope-wrapper">
-                        <!-- Left cap / knob -->
-                        <div class="scroll-tube-cap scroll-tube-cap-left">
-                            <div class="scroll-tube-knob"></div>
+                    <p class="instruction-text text-center" style="margin-bottom:24px;">✨ Tap the seal to open your royal scroll</p>
+                    <div class="scroll-preview-wrapper" id="envelope-wrapper">
+
+                        <!-- Top wooden rod -->
+                        <div class="scroll-preview-rod scroll-preview-rod-top">
+                            <div class="scroll-preview-knob"></div>
+                            <div class="scroll-preview-bar"></div>
+                            <div class="scroll-preview-knob"></div>
                         </div>
 
-                        <!-- Tube body -->
-                        <div class="scroll-tube-body">
-                            <!-- Decorative filigree lines on tube -->
-                            <div class="scroll-tube-lines"></div>
-                            <!-- Central seal -->
+                        <!-- Parchment body (rolled up, sealed) -->
+                        <div class="scroll-preview-body">
+                            <!-- Tangled sun watermark on closed scroll -->
+                            <div class="scroll-preview-sun">
+                                <svg viewBox="0 0 100 100" width="60" height="60" opacity="0.12">
+                                    <path d="M50 12 L53 38 L77 20 L62 44 L87 50 L62 56 L77 80 L53 62 L50 88 L47 62 L23 80 L38 56 L13 50 L38 44 L23 20 L47 38 Z" fill="#8B6010"/>
+                                    <circle cx="50" cy="50" r="16" fill="#8B6010"/>
+                                </svg>
+                            </div>
+                            <!-- Wax seal centered -->
                             <div class="wax-seal" id="wax-seal" aria-label="Break the wax seal to open the scroll">
-                                <div class="wax-design" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:4px;">
-                                    <svg viewBox="0 0 100 100" width="32" height="32" style="filter:drop-shadow(0 1px 1px rgba(255,255,255,0.4));">
-                                        <path d="M50 12 L53 38 L77 20 L62 44 L87 50 L62 56 L77 80 L53 62 L50 88 L47 62 L23 80 L38 56 L13 50 L38 44 L23 20 L47 38 Z" fill="#D38C1B" />
-                                        <circle cx="50" cy="50" r="16" fill="#E2A028" />
+                                <div class="wax-design" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;">
+                                    <svg viewBox="0 0 100 100" width="34" height="34" style="filter:drop-shadow(0 1px 2px rgba(255,255,255,0.3));">
+                                        <path d="M50 12 L53 38 L77 20 L62 44 L87 50 L62 56 L77 80 L53 62 L50 88 L47 62 L23 80 L38 56 L13 50 L38 44 L23 20 L47 38 Z" fill="#D38C1B"/>
+                                        <circle cx="50" cy="50" r="16" fill="#E2A028"/>
                                     </svg>
                                 </div>
                             </div>
-                            <!-- Gold tassel -->
-                            <div class="scroll-tube-tassel">
-                                <div class="tassel-cord"></div>
-                                <div class="tassel-head">
-                                    <span></span><span></span><span></span><span></span><span></span>
-                                </div>
-                            </div>
+                            <!-- Decorative ruled lines (scroll paper texture) -->
+                            <div class="scroll-preview-lines"></div>
                         </div>
 
-                        <!-- Right cap / knob -->
-                        <div class="scroll-tube-cap scroll-tube-cap-right">
-                            <div class="scroll-tube-knob"></div>
+                        <!-- Bottom wooden rod -->
+                        <div class="scroll-preview-rod scroll-preview-rod-bottom">
+                            <div class="scroll-preview-knob"></div>
+                            <div class="scroll-preview-bar"></div>
+                            <div class="scroll-preview-knob"></div>
                         </div>
+
                     </div>
                 </div>
             </div>
