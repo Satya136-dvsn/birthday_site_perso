@@ -655,7 +655,11 @@ musicToggle.addEventListener('click', () => {
 /* ==========================================================================
    SCENE NAVIGATION SYSTEM
    ========================================================================== */
-function showScene(sceneId) {
+function showScene(sceneId, updateHash = true) {
+    if (updateHash) {
+        window.location.hash = sceneId;
+    }
+    
     // Hide all scenes
     document.querySelectorAll('.scene').forEach(scene => {
         scene.classList.remove('active');
@@ -665,35 +669,62 @@ function showScene(sceneId) {
     const targetScene = document.getElementById(sceneId);
     if (targetScene) {
         targetScene.classList.add('active');
-        // Mic blow detection is now started only via the dedicated Blow button
     }
 }
 
+// Handle routing on hash change or initial load
+function handleRouting() {
+    const hash = window.location.hash.replace('#', '');
+    if (SCENES.includes(hash)) {
+        // If they navigate directly to gallery-section, initialize the card
+        if (hash === 'gallery-section') {
+            currentScrapbookPage = 1;
+            renderScrapbookCard(1);
+            const pageNum = document.getElementById('current-page-num');
+            const prevBtn = document.getElementById('prev-page-btn');
+            const nextBtn = document.getElementById('next-page-btn');
+            if (pageNum) pageNum.textContent = '1';
+            if (prevBtn) prevBtn.disabled = true;
+            if (nextBtn) nextBtn.disabled = false;
+        }
+        
+        // If navigating away from letter-section, hide the modal letter card and backdrop if they were open
+        if (hash !== 'letter-section') {
+            if (letterCard) {
+                letterCard.classList.remove('visible', 'unrolled');
+                letterCard.classList.add('hidden');
+            }
+            if (letterBackdrop) {
+                letterBackdrop.classList.remove('visible');
+            }
+        }
+        
+        showScene(hash, false);
+    } else {
+        // Default to welcome scene
+        showScene('welcome-section');
+    }
+}
+
+window.addEventListener('hashchange', handleRouting);
+window.addEventListener('load', handleRouting);
+
 // Scene navigations
 document.getElementById('unwrap-btn').addEventListener('click', () => {
-    showScene('cake-section');
+    window.location.hash = 'cake-section';
 });
 
 document.getElementById('next-to-letter').addEventListener('click', () => {
-    showScene('letter-section');
+    window.location.hash = 'letter-section';
 });
 
 document.getElementById('next-to-gallery').addEventListener('click', () => {
-    letterCard.classList.remove('visible');
-    letterCard.classList.remove('unrolled');
-    letterCard.classList.add('hidden');
-    letterBackdrop.classList.remove('visible');
-    currentScrapbookPage = 1;
-    renderScrapbookCard(1);
-    document.getElementById('current-page-num').textContent = '1';
-    document.getElementById('prev-page-btn').disabled = true;
-    document.getElementById('next-page-btn').disabled = false;
-    showScene('gallery-section');
+    window.location.hash = 'gallery-section';
 });
 
 // Transition from Star Constellation Map to Wish Jar
 document.getElementById('next-to-wish').addEventListener('click', () => {
-    showScene('wish-section');
+    window.location.hash = 'wish-section';
 });
 
 // Welcome Screen Typing Animation
@@ -1249,7 +1280,7 @@ restartBtn.addEventListener('click', () => {
     document.getElementById('next-page-btn').disabled = false;
 
     // Return to welcome gate
-    showScene('welcome-section');
+    window.location.hash = 'welcome-section';
 });
 
 // Initial mount configuration
