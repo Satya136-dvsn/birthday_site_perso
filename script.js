@@ -948,12 +948,12 @@ waxSeal.addEventListener('click', (e) => {
     // 1. Crack the seal
     waxSeal.classList.add('broken');
 
-    // 2. Flip envelope flap open
+    // 2. Slide tube caps apart (scroll tube opening animation)
     setTimeout(() => {
         envelopeWrapper.classList.add('open');
-    }, 500);
+    }, 400);
 
-    // 3. Fade out envelope, show full letter card + backdrop
+    // 3. Fade out tube, show full scroll card + backdrop
     setTimeout(() => {
         envelopeStage.classList.add('fade-out');
 
@@ -971,7 +971,7 @@ waxSeal.addEventListener('click', (e) => {
                 }, 900);
             });
         });
-    }, 1100);
+    }, 1000);
 });
 
 /* ==========================================================================

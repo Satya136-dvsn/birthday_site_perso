@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=2.6">
+    <link rel="stylesheet" href="styles.css?v=2.7">
 </head>
 <body>
     <!-- Background Canvas for Dreamy Stars and Floating Lanterns -->
@@ -282,32 +282,40 @@
             <div class="scene-content flex-center-col" style="gap:0; width:100%;">
                 <h2 id="letter-title" class="sr-only">Your Handwritten Letter</h2>
 
-                <!-- Stage 1: Envelope trigger -->
+                <!-- Stage 1: Scroll Tube trigger -->
                 <div id="envelope-stage">
-                    <p class="instruction-text text-center" style="margin-bottom:14px;">✨ Tap the wax seal to open your letter</p>
-                    <div class="envelope-wrapper" id="envelope-wrapper">
-                        <div class="envelope">
-                            <div class="envelope-back"></div>
-                            <div class="letter-paper">
-                                <div style="font-size: 7px; padding: 15px; color: #888; font-family: var(--font-serif); line-height: 1.5; opacity: 0.6; filter: blur(0.5px);">
-                                    <h3 style="font-size: 9px; margin-bottom: 6px; font-weight: normal;">Dearest Bestie,</h3>
-                                    <p style="margin-bottom: 4px;">I sat down to write this because, honestly, how do you put years of late-night giggles, shared secrets, and countless cups of tea into a single card?</p>
-                                    <p style="margin-bottom: 4px;">From the days when we had nothing but wild dreams to this exact moment, you have been my anchor, my constant cheerleader, and my absolute favorite human.</p>
-                                    <p style="margin-bottom: 4px;">You have this quiet magic about you that makes everything brighter. Whenever life felt a bit too loud or confusing, just talking to you made it all drift away.</p>
-                                    <p style="margin-bottom: 6px;">Today, I want to celebrate YOU. All the beauty, kindness, and light you bring to the world.</p>
-                                    <p style="text-align: right; font-style: italic;">With all my love,<br>Your Childhood Bestie 💕</p>
-                                </div>
-                            </div>
-                            <div class="envelope-front"></div>
-                            <div class="envelope-top" id="envelope-top"></div>
-                            <div class="wax-seal" id="wax-seal" aria-label="Break the wax seal to open the letter">
-                                <div class="wax-design" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 4px;">
-                                    <svg viewBox="0 0 100 100" width="34" height="34" style="filter: drop-shadow(0 1px 1px rgba(255,255,255,0.4));">
+                    <p class="instruction-text text-center" style="margin-bottom:20px;">✨ Tap the seal to open your royal scroll</p>
+                    <div class="scroll-tube-wrapper" id="envelope-wrapper">
+                        <!-- Left cap / knob -->
+                        <div class="scroll-tube-cap scroll-tube-cap-left">
+                            <div class="scroll-tube-knob"></div>
+                        </div>
+
+                        <!-- Tube body -->
+                        <div class="scroll-tube-body">
+                            <!-- Decorative filigree lines on tube -->
+                            <div class="scroll-tube-lines"></div>
+                            <!-- Central seal -->
+                            <div class="wax-seal" id="wax-seal" aria-label="Break the wax seal to open the scroll">
+                                <div class="wax-design" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:4px;">
+                                    <svg viewBox="0 0 100 100" width="32" height="32" style="filter:drop-shadow(0 1px 1px rgba(255,255,255,0.4));">
                                         <path d="M50 12 L53 38 L77 20 L62 44 L87 50 L62 56 L77 80 L53 62 L50 88 L47 62 L23 80 L38 56 L13 50 L38 44 L23 20 L47 38 Z" fill="#D38C1B" />
                                         <circle cx="50" cy="50" r="16" fill="#E2A028" />
                                     </svg>
                                 </div>
                             </div>
+                            <!-- Gold tassel -->
+                            <div class="scroll-tube-tassel">
+                                <div class="tassel-cord"></div>
+                                <div class="tassel-head">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right cap / knob -->
+                        <div class="scroll-tube-cap scroll-tube-cap-right">
+                            <div class="scroll-tube-knob"></div>
                         </div>
                     </div>
                 </div>
@@ -463,7 +471,7 @@
             <p class="letter-body" style="font-style: italic; opacity: 0.9;">
                 Yekuva chepanaa, parledu leyy nuvee kadaa nekuu kakapoteyy inkaa evarikii.
             </p>
-            <p class="letter-signature">With all my love,<br><span class="sig-name">Your Bestie 💕</span></p>
+            <p class="letter-signature">With all my love,<br><span class="sig-name">Satya 💕</span></p>
         </div>
         <div class="letter-next-row">
             <button id="next-to-gallery" class="cute-btn">
@@ -484,6 +492,6 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="script.js?v=2.4"></script>
+    <script src="script.js?v=2.5"></script>
 </body>
 </html>
