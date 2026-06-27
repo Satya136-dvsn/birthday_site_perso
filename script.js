@@ -194,7 +194,7 @@ const DIARY_DATA = [
         date: "Back when it all began",
         desc: "Young, carefree, and absolutely unbothered. This photo feels like the beginning of everything — the laughs, the memories, the bond. Some things started small and grew into something forever. 🌱",
         image: "scrapbook/IMG-20211126-WA0011.jpg",
-        position: "center 55%"
+        position: "center 60%"
     },
     {
         title: "A quick snap in time 📸",
@@ -211,18 +211,18 @@ const DIARY_DATA = [
         position: "center 15%"
     },
     {
-        title: "Candid & carefree 🌷",
-        date: "A moment caught off guard",
-        desc: "The best moments are the ones you don't see coming. This was one of those. Caught mid-laugh, mid-life, mid-friendship — and it's perfect. 🌸",
-        image: "scrapbook/Snapchat-1942165462.jpg",
-        position: "center 15%"
+        title: "Warm winter blue 💙",
+        date: "A cozy moment together",
+        desc: "Blue sweater, bright smiles, and that warm, comforting vibe we always share. You look adorable, and I'm just happy to be standing right behind you supporting you as always. ❄️✨",
+        image: "scrapbook/IMG-20250112-WA0007.jpg",
+        position: "center 20%"
     },
     {
         title: "Squad goals 🌼",
         date: "Together as always",
         desc: "Look at us. Just look. We're honestly too cute sometimes and I refuse to be humble about it. This is what friendship looks like — warm, real, and a little bit silly. 💖",
         image: "scrapbook/Snapchat-246365356.jpg",
-        position: "center 90%"
+        position: "center center"
     },
     {
         title: "A grand day out 🎊",
