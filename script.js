@@ -183,9 +183,9 @@ const DIARY_DATA = [
         position: "center 15%"
     },
     {
-        title: "Close-up smiles & glasses 👓",
+        title: "Close-up smiles & glasses",
         date: "A bright sunny day out",
-        desc: "Double glasses, double smiles, and a very good hair day. We might look like we're about to write a research paper together, but really we were just taking cute selfies. ☀️💕",
+        desc: "Double glasses, double smiles, and a very good hair day. We might look like we're about to write a research paper together, but really we were just taking cute selfies with our morning sleepy faces at the beach.",
         image: "scrapbook/IMG-20250106-WA0019.jpg",
         position: "center 20%"
     },
