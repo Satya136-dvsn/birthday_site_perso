@@ -3029,10 +3029,10 @@ html, body {
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: 0;
-    right: 0;
+    left: -25px;   /* sits knobs outside the paper borders */
+    right: -25px;
     z-index: 25;
-    padding: 0 4px;
+    padding: 0;
 }
 
 .scroll-bar {
