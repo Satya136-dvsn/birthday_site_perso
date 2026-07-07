@@ -171,7 +171,7 @@ const DIARY_DATA = [
     {
         title: "Mirror selfie besties 🖤",
         date: "Just a random perfect day",
-        desc: "Black fits and that orange phone case — this mirror selfie is peak us. You always make me smile even when I'm pretending to be cool. Batman approved. 🦇✨",
+        desc: "This mirror selfie is peak us. You always make me smile even when I'm pretending to be cool and done so much of cringe probably best hangout.",
         image: "scrapbook/IMG_0591.jpg",
         position: "center 10%"
     },
