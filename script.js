@@ -213,7 +213,7 @@ const DIARY_DATA = [
     {
         title: "Warm winter blue 💙",
         date: "A cozy moment together",
-        desc: "Blue sweater, bright smiles, and that warm, comforting vibe we always share. You look adorable, and I'm just happy to be standing right behind you supporting you as always. ❄️✨",
+        desc: "Blue sweater, bright smiles, and that warm, comforting vibe we always share. You look adorable, and I'm just happy to be standing right behind you coz you cannot look at damn chicken being cut 🤣",
         image: "scrapbook/IMG-20250112-WA0007.jpg",
         position: "center 20%"
     },
