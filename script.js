@@ -164,7 +164,7 @@ const DIARY_DATA = [
     {
         title: "Traditional & timeless 🌸",
         date: "A very special occasion",
-        desc: "You in that stunning red lehenga, looking like you walked straight out of a dream. And look at me trying to keep up! This day was beautiful in every way — and so were you. 💃",
+        desc: "This was beautiful we enjoyed a lot but look at you trying to keep up with me potti 😆. Seeing you that day i got stunned .",
         image: "scrapbook/IMG_0305.JPG",
         position: "center 5%"
     },
