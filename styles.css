@@ -1356,46 +1356,58 @@ html, body {
     z-index: 0;
 }
 
-/* Inner scrollable content — flex-grow so it fills remaining space */
-.letter-card-inner {
-    position: relative;
+/* Scrollable Content Wrapper — strictly between the rods */
+.scroll-content-container {
+    position: absolute;
+    top: 9px;
+    bottom: 9px;
+    left: 0;
+    right: 0;
     z-index: 1;
-    padding: 22px 28px 16px 32px;
-    flex: 1 1 auto;       /* fills height between top edge and button row */
+    display: flex;
+    flex-direction: column;
     overflow-y: hidden;   /* Hide scrollbars during unrolling transition */
     scrollbar-width: thin;
     scrollbar-color: #E5C158 transparent;
 }
-.letter-card.unrolled .letter-card-inner {
+.letter-card.unrolled .scroll-content-container {
     overflow-y: auto;     /* Smooth vertical scrolling for long letters after unrolled */
 }
 
 /* Custom Gold/Parchment Scrollbar for Webkit (Chrome/Safari/Edge) */
-.letter-card-inner::-webkit-scrollbar {
+.scroll-content-container::-webkit-scrollbar {
     width: 6px;
 }
-.letter-card-inner::-webkit-scrollbar-track {
+.scroll-content-container::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.03);
     border-radius: 4px;
-    margin: 10px 0;
+    margin: 18px 0;
 }
-.letter-card-inner::-webkit-scrollbar-thumb {
+.scroll-content-container::-webkit-scrollbar-thumb {
     background: #E5C158;
     border-radius: 4px;
     box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.4);
 }
-.letter-card-inner::-webkit-scrollbar-thumb:hover {
+.scroll-content-container::-webkit-scrollbar-thumb:hover {
     background: #FFC857;
 }
 
-/* Next button row — pinned to bottom, always visible */
+/* Inner layout for scrollable text */
+.letter-card-inner {
+    position: relative;
+    z-index: 1;
+    padding: 24px 36px 12px 36px;
+    flex: 1 0 auto;       /* fills height, doesn't shrink */
+}
+
+/* Next button row — scrolls along at the end of the letter */
 .letter-next-row {
     position: relative;
     z-index: 1;
     flex: 0 0 auto;
     display: flex;
     justify-content: center;
-    padding: 10px 0 18px;
+    padding: 10px 0 24px;
     border-top: 1px dashed rgba(220,174,174,0.35);
 }
 
@@ -3016,9 +3028,10 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    z-index: 20;
-    flex: 0 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 25;
     padding: 0 4px;
 }
 
@@ -3067,17 +3080,12 @@ html, body {
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
 }
 
-/* Rods sit ON TOP of the paper — overlap it by 14px so the
-   parchment appears to roll from behind the dowels            */
+/* Rods sit ON TOP of the paper edges absolute */
 .scroll-roll-top {
-    margin-bottom: -14px;   /* pulls rod down over paper top edge */
-    position: relative;
-    z-index: 25;            /* above letter-lines (z:0) and letter-card-inner (z:1) */
+    top: -4px;
 }
 .scroll-roll-bottom {
-    margin-top: -14px;      /* pulls rod up over paper bottom edge */
-    position: relative;
-    z-index: 25;
+    bottom: -4px;
 }
 
 /* Shadow cast by rods onto the parchment — simulates paper curling under */
