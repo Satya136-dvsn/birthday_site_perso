@@ -178,7 +178,7 @@ const DIARY_DATA = [
     {
         title: "Night out in style 🌙",
         date: "A festive evening together",
-        desc: "You in a saree, me in green — standing under fairy lights at night, looking like we actually had our life together. Spoiler: we were just winging it as usual, but we looked amazing doing it. ✨",
+        desc: "You in a saree, me in green - standing under fairy lights at night, even though so tired you came for a photo, even i didn't ask for, you remembered me even in busy times😘🤧",
         image: "scrapbook/IMG-20260308-WA0007.jpg",
         position: "center 15%"
     },
