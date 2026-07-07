@@ -227,7 +227,7 @@ const DIARY_DATA = [
     {
         title: "A grand day out 🎊",
         date: "Dressed up & showing up",
-        desc: "Big smiles, dressed to impress, and absolutely thriving. Whatever this occasion was, we clearly showed up for it — and for each other. That's what we always do. 🥂✨",
+        desc: "Big smiles, dressed to impress, and absolutely thriving. We planned one thing this day but ended up doing great. And you never lose a chance to annoy me this proves that even though you are short.😗",
         image: "scrapbook/DSC_0050.JPG",
         position: "center 20%"
     },
