@@ -206,7 +206,7 @@ const DIARY_DATA = [
     {
         title: "Snapchat silliness 😄",
         date: "When we were in a mood",
-        desc: "Whatever mood this was, I love it. Snapchat knew what it was doing bringing us together like this. Pure energy, no filter needed (okay maybe one filter). 😂🤍",
+        desc: "Whatever mood this was, I love it. We were there for one thing but but we were just being us crazy and dumb playing.✨",
         image: "scrapbook/Snapchat-1220451797.jpg",
         position: "center 15%"
     },
