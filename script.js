@@ -112,9 +112,9 @@
         });
     });
 
-    // ── Dev bypass: forced to true during testing stage ──
+    // ── Dev bypass: set to false to enable gates ──
     const previewParam = new URLSearchParams(window.location.search).get('preview');
-    const DEV_BYPASS = true; // Force-enabled for testing (removes timer and passcode)
+    const DEV_BYPASS = false; // Set to false to show countdown gate / passcode gate
 
     // Run gate check on load
     if (DEV_BYPASS) {
