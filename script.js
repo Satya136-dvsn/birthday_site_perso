@@ -220,7 +220,7 @@ const DIARY_DATA = [
     {
         title: "Squad goals 🌼",
         date: "Together as always",
-        desc: "Look at us. Just look. We're honestly too cute sometimes and I refuse to be humble about it. This is what friendship looks like — warm, real, and a little bit silly. 💖",
+        desc: "Look at us. Just look. We're honestly too cute sometimes and I refuse to be humble about it. This is what friendship looks like - warm, real, and a little bit silly. Probably this is the best day out of us i think as of we ever had, having no regret.💖💝",
         image: "scrapbook/Snapchat-246365356.jpg",
         position: "center center"
     },
