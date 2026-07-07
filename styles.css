@@ -3170,6 +3170,56 @@ html, body {
     border-right: 4px dashed #FAF9F6 !important;
 }
 
+/* ══════════════════════════════════════════════════════════════════════════════
+   LETTER ONLY LAYOUT (NO SCROLL / NO HEIGHT ANIMATION)
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Hide the scroll/dowels/knobs */
+.scroll-roll {
+    display: none !important;
+}
+
+/* Transform the letter card into a beautiful stationery sheet */
+.letter-card {
+    height: 82vh !important;
+    max-height: 82vh !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(212, 175, 55, 0.25) !important;
+    box-shadow: 
+        0 16px 40px rgba(0, 0, 0, 0.3),
+        0 0 100px rgba(212, 175, 55, 0.05) !important;
+    overflow: hidden !important;
+    
+    /* Replaced unrolling transition with fade & soft zoom scale */
+    transition: 
+        opacity 0.4s ease,
+        transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Hidden state: slightly scaled down and faded */
+.letter-card.hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 82vh !important;
+    transform: translate(-50%, -48%) scale(0.95) !important;
+}
+
+/* Visible state: fully scaled and visible */
+.letter-card.visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    height: 82vh !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+/* Adjust scroll container to span the full card height now that dowels are gone */
+.scroll-content-container {
+    top: 0 !important;
+    bottom: 0 !important;
+    overflow-y: auto !important;
+}
+
+
 
 
 
