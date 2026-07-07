@@ -119,7 +119,7 @@
     const DEV_BYPASS = false; // Set to false to show countdown gate / passcode gate
 
     // Run gate check on load
-    if (DEV_BYPASS) {
+    if (DEV_BYPASS || previewParam === 'content') {
         // Skip everything — hide both gates immediately
         countdownGate.classList.add('hidden');
         passcodeGate.classList.add('hidden');
