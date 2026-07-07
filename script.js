@@ -4,7 +4,7 @@
 
 (function () {
     const UNLOCK_DATE = new Date('2026-07-22T00:00:00'); // July 22, 2026 midnight
-    const PASSCODE    = '2207';
+    const PASSCODE    = '122807';
 
     const countdownGate = document.getElementById('countdown-gate');
     const passcodeGate  = document.getElementById('passcode-gate');
@@ -14,6 +14,8 @@
         document.getElementById('dot-2'),
         document.getElementById('dot-3'),
         document.getElementById('dot-4'),
+        document.getElementById('dot-5'),
+        document.getElementById('dot-6'),
     ];
 
     let entered = '';
@@ -101,11 +103,11 @@
                 updateDots();
             } else if (action === 'enter') {
                 tryUnlock();
-            } else if (n !== undefined && entered.length < 4) {
+            } else if (n !== undefined && entered.length < 6) {
                 entered += n;
                 updateDots();
-                // Auto-submit when 4 digits entered
-                if (entered.length === 4) {
+                // Auto-submit when 6 digits entered
+                if (entered.length === 6) {
                     setTimeout(tryUnlock, 200);
                 }
             }
