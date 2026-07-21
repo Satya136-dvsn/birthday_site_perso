@@ -2,6 +2,9 @@
    DESIGN TOKENS & ROOT VARIABLES
    ========================================================================== */
 :root {
+    color-scheme: only dark;
+    forced-color-adjust: none;
+    -webkit-forced-color-adjust: none;
     --bg-main: #1C122E; /* Royal midnight purple */
     --bg-gradient: linear-gradient(135deg, #10061e 0%, #1c0f2e 35%, #2a1845 70%, #442866 100%);
     --panel-bg: rgba(26, 15, 38, 0.68); /* Tinted purple glassmorphism */
@@ -25,6 +28,11 @@
     --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-mid: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: 0.2s ease;
+}
+
+svg, svg *, .cake-svg, .cake-svg * {
+    forced-color-adjust: none !important;
+    -webkit-forced-color-adjust: none !important;
 }
 
 /* ==========================================================================
@@ -625,14 +633,13 @@ html, body {
    ========================================================================== */
 .cake-container {
     position: relative;
-    margin: 20px 0 40px 0;
+    margin: 15px auto 25px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 320px;
-    height: 320px;
+    width: min(300px, 82vw);
+    height: min(300px, 82vw);
     transition: transform var(--transition-slow), margin var(--transition-slow), opacity var(--transition-slow);
-    transform: scale(1.25);
 }
 
 
