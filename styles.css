@@ -3185,8 +3185,32 @@ html, body {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   LETTER ONLY LAYOUT (NO SCROLL / NO HEIGHT ANIMATION)
+   LETTER ONLY LAYOUT & MOBILE COLOR PROTECTION
    ══════════════════════════════════════════════════════════════════════════════ */
+
+/* Force-protect letter card, text, and polaroid paper from mobile browser auto-dark-mode inversion */
+.letter-card,
+.letter-card-inner,
+.letter-header,
+.letter-body,
+.letter-signature,
+.scroll-content-container,
+.letter-lines,
+.polaroid-card,
+.polaroid-front,
+.polaroid-back,
+.polaroid-caption,
+.diary-date,
+.diary-title,
+.diary-text,
+.tape,
+.gate-content,
+.numpad-btn,
+.passcode-dots,
+.dot {
+    forced-color-adjust: none !important;
+    -webkit-forced-color-adjust: none !important;
+}
 
 /* Hide the scroll/dowels/knobs */
 .scroll-roll {
@@ -3195,16 +3219,20 @@ html, body {
 
 /* Transform the letter card into a beautiful stationery sheet */
 .letter-card {
-    height: 82vh !important;
-    max-height: 82vh !important;
+    width: min(580px, 92vw) !important;
+    height: 85vh !important;
+    max-height: 85vh !important;
+    background-color: #FFFDF0 !important;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg%20viewBox='0%200%20200%20200'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter%20id='noiseFilter'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.65'%20numOctaves='4'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23noiseFilter)'%20opacity='0.04'/%3E%3C/svg%3E"), 
+        radial-gradient(ellipse at center, #FFFDF5 0%, #F8EED8 50%, #ECE0C4 100%) !important;
     border-radius: 16px !important;
-    border: 1px solid rgba(212, 175, 55, 0.25) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.4) !important;
     box-shadow: 
-        0 16px 40px rgba(0, 0, 0, 0.3),
-        0 0 100px rgba(212, 175, 55, 0.05) !important;
+        0 16px 40px rgba(0, 0, 0, 0.45),
+        0 0 80px rgba(212, 175, 55, 0.08) !important;
     overflow: hidden !important;
     
-    /* Replaced unrolling transition with fade & soft zoom scale */
     transition: 
         opacity 0.4s ease,
         transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
@@ -3214,7 +3242,7 @@ html, body {
 .letter-card.hidden {
     opacity: 0 !important;
     pointer-events: none !important;
-    height: 82vh !important;
+    height: 85vh !important;
     transform: translate(-50%, -48%) scale(0.95) !important;
 }
 
@@ -3222,15 +3250,52 @@ html, body {
 .letter-card.visible {
     opacity: 1 !important;
     pointer-events: auto !important;
-    height: 82vh !important;
+    height: 85vh !important;
     transform: translate(-50%, -50%) scale(1) !important;
 }
 
-/* Adjust scroll container to span the full card height now that dowels are gone */
+/* Scroll container inside letter card — smooth touch scrolling on mobile */
 .scroll-content-container {
+    position: absolute !important;
     top: 0 !important;
     bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
     overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-y: contain !important;
+    padding: 10px 0 !important;
+}
+
+.letter-card-inner {
+    padding: 24px 28px 24px 28px !important;
+}
+
+/* Crisp, high-contrast text styling for handwritten letter */
+.letter-header {
+    color: #4A2800 !important;
+    font-weight: 700 !important;
+    font-size: clamp(1.4rem, 5vw, 1.85rem) !important;
+    text-shadow: none !important;
+}
+
+.letter-body {
+    color: #261606 !important;
+    font-size: clamp(0.98rem, 3.8vw, 1.1rem) !important;
+    line-height: 1.65 !important;
+    font-weight: 500 !important;
+    margin-bottom: 14px !important;
+}
+
+.letter-signature {
+    color: #4A2800 !important;
+    font-size: 1.05rem !important;
+    margin-top: 16px !important;
+}
+
+.sig-name {
+    color: #7B4200 !important;
+    font-weight: 700 !important;
 }
 
 

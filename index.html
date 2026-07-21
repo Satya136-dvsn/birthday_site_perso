@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=4.16">
+    <link rel="stylesheet" href="styles.css?v=4.17">
 </head>
 <body>
     <!-- Background Canvas for Dreamy Stars and Floating Lanterns -->
@@ -424,8 +424,8 @@
     </main>
 
     <!-- Letter backdrop + card — must be direct body children (outside all transformed sections) -->
-    <div id="letter-backdrop" class="letter-backdrop"></div>
-    <div id="letter-card" class="letter-card hidden">
+    <div id="letter-backdrop" class="letter-backdrop" style="forced-color-adjust: none; -webkit-forced-color-adjust: none;"></div>
+    <div id="letter-card" class="letter-card hidden" style="forced-color-adjust: none; -webkit-forced-color-adjust: none;">
         <!-- Top Scroll Roll Bar -->
         <div class="scroll-roll scroll-roll-top">
             <div class="scroll-knob scroll-knob-left"></div>
@@ -435,8 +435,8 @@
 
         <div class="letter-lines"></div>
         <!-- Scrollable Content Wrapper -->
-        <div class="scroll-content-container">
-            <div class="letter-card-inner">
+        <div class="scroll-content-container" style="forced-color-adjust: none; -webkit-forced-color-adjust: none;">
+            <div class="letter-card-inner" style="forced-color-adjust: none; -webkit-forced-color-adjust: none;">
                 <div class="letter-card-deco-top" style="display: flex; justify-content: center; margin-bottom: 4px; margin-top: -6px;">
                     <!-- Corona Royal Sun Crest Header for the Letter with Metallic 3D Gold Gradient -->
                     <svg viewBox="0 0 100 100" width="54" height="54" style="filter: drop-shadow(0 2px 8px rgba(255,179,71,0.65));">
@@ -504,6 +504,6 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="script.js?v=4.16"></script>
+    <script src="script.js?v=4.17"></script>
 </body>
 </html>
