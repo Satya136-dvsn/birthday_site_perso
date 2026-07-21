@@ -262,6 +262,13 @@ html, body {
     animation: dotShake 0.4s ease;
 }
 
+.dot.success {
+    border-color: #5cdb95;
+    background: #5cdb95;
+    box-shadow: 0 0 15px rgba(92, 219, 149, 0.9);
+    transform: scale(1.25);
+}
+
 @keyframes dotShake {
     0%, 100% { transform: translateX(0); }
     20%       { transform: translateX(-5px); }

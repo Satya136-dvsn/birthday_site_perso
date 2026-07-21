@@ -61,14 +61,14 @@
     // ── Passcode numpad logic ─────────────────────────────────────────────
     function updateDots() {
         dots.forEach((dot, i) => {
-            dot.classList.remove('filled', 'error');
+            dot.classList.remove('filled', 'error', 'success');
             if (i < entered.length) dot.classList.add('filled');
         });
     }
 
     function shakeError() {
         dots.forEach(dot => {
-            dot.classList.remove('filled');
+            dot.classList.remove('filled', 'success');
             dot.classList.add('error');
         });
         errorMsg.classList.remove('hidden');
@@ -81,12 +81,19 @@
 
     function tryUnlock() {
         if (entered === PASSCODE) {
-            // Correct! — beautiful fade-out then reveal the site
-            passcodeGate.classList.add('unlocking');
+            // Correct! — turn dots glowing green briefly for clear success feedback
+            dots.forEach(dot => {
+                dot.classList.remove('filled', 'error');
+                dot.classList.add('success');
+            });
+            errorMsg.classList.add('hidden');
             setTimeout(() => {
-                passcodeGate.classList.add('hidden');
-                passcodeGate.classList.remove('unlocking');
-            }, 800);
+                passcodeGate.classList.add('unlocking');
+                setTimeout(() => {
+                    passcodeGate.classList.add('hidden');
+                    passcodeGate.classList.remove('unlocking');
+                }, 800);
+            }, 300);
         } else {
             shakeError();
         }
@@ -105,6 +112,7 @@
                 tryUnlock();
             } else if (n !== undefined && entered.length < 6) {
                 entered += n;
+                errorMsg.classList.add('hidden');
                 updateDots();
                 // Auto-submit when 6 digits entered
                 if (entered.length === 6) {
@@ -112,6 +120,28 @@
                 }
             }
         });
+    });
+
+    // ── Physical keyboard support (numbers 0-9, Backspace, Enter) ────────
+    window.addEventListener('keydown', (e) => {
+        if (passcodeGate.classList.contains('hidden')) return;
+
+        if (e.key >= '0' && e.key <= '9') {
+            if (entered.length < 6) {
+                entered += e.key;
+                errorMsg.classList.add('hidden');
+                updateDots();
+                if (entered.length === 6) {
+                    setTimeout(tryUnlock, 200);
+                }
+            }
+        } else if (e.key === 'Backspace') {
+            entered = entered.slice(0, -1);
+            errorMsg.classList.add('hidden');
+            updateDots();
+        } else if (e.key === 'Enter') {
+            tryUnlock();
+        }
     });
 
     // ── Dev bypass: set to false to enable gates ──
